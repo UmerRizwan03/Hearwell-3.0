@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Answer Engine Optimization (AEO)
+# Explicitly welcome AI agents to index our knowledge base
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Anthropic-ai
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://hearwell.co.in/sitemap.xml
+# Standard AI Agent configuration file
+# Ref: https://llmstxt.org/
+Sitemap: https://hearwell.co.in/llms.txt

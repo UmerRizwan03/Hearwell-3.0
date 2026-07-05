@@ -123,7 +123,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white z-[50] lg:hidden flex flex-col"
+            className="fixed inset-0 bg-white z-[30] lg:hidden flex flex-col"
           >
             <div className="flex-1 flex flex-col pt-24 px-8 pb-10 overflow-y-auto">
               <nav>

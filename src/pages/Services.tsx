@@ -92,6 +92,30 @@ const developmentalServices = [
 ];
 
 const Services = () => {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Speech and Hearing Services",
+    "description": "Comprehensive clinical diagnostics, pediatric therapies, and childhood development programs under one roof.",
+    "about": [
+      {
+        "@type": "MedicalSpecialty",
+        "name": "Audiology",
+        "description": "State-of-the-art diagnostic evaluations, Pure Tone Audiometry, and Hearing Aid Fitting."
+      },
+      {
+        "@type": "MedicalSpecialty",
+        "name": "Speech Pathology",
+        "description": "Expert therapy addressing articulation disorders, stuttering, voice disorders, and language delays."
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Auditory Verbal Therapy",
+        "description": "Evidence-based early intervention program designed to teach children with hearing impairments to listen and speak."
+      }
+    ]
+  };
+
   return (
     <div className="bg-transparent">
       <SEO
@@ -99,6 +123,7 @@ const Services = () => {
         description="Comprehensive clinical diagnostics, pediatric therapies, and childhood development programs under one roof."
         url="https://hearwell.co.in/services"
         keywords="speech therapy services Kerala, audiology services Perumbavoor, hearing test Perinjanam, pediatric speech therapy Kerala, IEP support Kerala"
+        schema={servicesSchema}
       />
 
       {/* ─── Directory Split Hero ─── */}

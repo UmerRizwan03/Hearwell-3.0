@@ -5,13 +5,15 @@ interface SEOProps {
   description?: string;
   url?: string;
   keywords?: string;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 const SEO = ({ 
   title = 'Hearwell Speech & Hearing Centre', 
   description = 'Expert diagnostics, hearing aid fitting, and speech therapy delivered with clinical precision and human patience in Perumbavoor and Perinjanam, Kerala.', 
   url = 'https://hearwell.co.in',
-  keywords = 'speech therapy Kerala, audiologist Perumbavoor, hearing aids Perinjanam, speech and hearing centre, best hearing clinic Kerala'
+  keywords = 'speech therapy Kerala, audiologist Perumbavoor, hearing aids Perinjanam, speech and hearing centre, best hearing clinic Kerala',
+  schema
 }: SEOProps) => {
   
   // JSON-LD Structured Data for Local Business
@@ -75,6 +77,11 @@ const SEO = ({
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };
