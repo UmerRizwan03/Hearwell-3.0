@@ -132,7 +132,7 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <FadeIn>
-                <h1 className="hw-heading-hero text-[var(--color-ink)] mb-6">
+                <h1 className="hw-heading-hero !text-4xl sm:!text-6xl lg:!text-7xl text-[var(--color-ink)] mb-6 tracking-tight">
                   Comprehensive Care.
                 </h1>
                 <p className="hw-body-lg text-[var(--color-ink-secondary)] text-balance max-w-xl">
