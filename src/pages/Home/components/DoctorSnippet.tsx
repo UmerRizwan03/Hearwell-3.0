@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SectionReveal } from '../../../components/common/Motion';
-import OptimizedImage from '../../../components/common/OptimizedImage';
+
 
 export const DoctorSnippet = () => {
   return (
