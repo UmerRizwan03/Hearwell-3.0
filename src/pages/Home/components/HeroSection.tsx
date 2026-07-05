@@ -19,7 +19,7 @@ export const HeroSection = () => {
 
   return (
     <SectionReveal 
-      className="relative min-h-[100dvh] lg:h-[100dvh] lg:max-h-[900px] flex flex-col justify-start lg:justify-center overflow-hidden bg-transparent pt-32 pb-16 lg:pt-16 lg:pb-0"
+      className="relative min-h-[100dvh] lg:h-[100dvh] lg:max-h-[900px] flex flex-col justify-start lg:justify-center overflow-hidden bg-transparent pt-24 pb-16 lg:pt-16 lg:pb-0"
       onMouseMove={handleMouseMove}
     >
       {/* Mouse hover gradient effect */}
@@ -72,17 +72,17 @@ export const HeroSection = () => {
           {/* Right Column: Paragraph & CTAs */}
           <motion.div 
             style={{ opacity, y, willChange: 'transform, opacity' }} 
-            className="flex flex-col items-center text-center lg:items-start lg:text-left pt-12 lg:pt-28"
+            className="flex flex-col items-center text-center lg:items-start lg:text-left pt-2 lg:pt-28"
           >
             <p className="text-base md:text-lg text-[var(--color-ink-secondary)] max-w-md leading-relaxed mb-8">
               Expert hearing tests, advanced hearing aid fitting, and speech therapy for all ages. Reconnect with the sounds of life.
             </p>
 
-            <div className="flex flex-nowrap items-center gap-4 pointer-events-auto mt-4">
-              <Link to="/booking" className="hw-btn hw-btn-primary hw-btn-lg whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pointer-events-auto mt-4 w-full px-6 sm:px-0 sm:w-auto">
+              <Link to="/booking" className="hw-btn hw-btn-primary hw-btn-lg whitespace-nowrap w-full sm:w-auto justify-center">
                 Book an Assessment
               </Link>
-              <Link to="/services" className="hw-btn hw-btn-secondary hw-btn-lg whitespace-nowrap">
+              <Link to="/services" className="hw-btn hw-btn-secondary hw-btn-lg whitespace-nowrap w-full sm:w-auto justify-center">
                 Explore Services
               </Link>
             </div>
