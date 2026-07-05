@@ -19,7 +19,7 @@ export const HeroSection = () => {
 
   return (
     <SectionReveal 
-      className="relative h-[100dvh] max-h-[900px] flex flex-col justify-center overflow-hidden bg-transparent pt-16"
+      className="relative min-h-[100dvh] lg:h-[100dvh] lg:max-h-[900px] flex flex-col justify-start lg:justify-center overflow-hidden bg-transparent pt-32 pb-16 lg:pt-16 lg:pb-0"
       onMouseMove={handleMouseMove}
     >
       {/* Mouse hover gradient effect */}
