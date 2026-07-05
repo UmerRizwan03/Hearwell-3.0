@@ -10,14 +10,14 @@ const PrivacyPolicy = () => {
         url="https://hearwell.co.in/privacy-policy"
       />
 
-      <section className="relative pt-32 pb-24 overflow-hidden bg-[var(--color-dark-bg)]">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-transparent border-b border-[var(--color-border)]">
         <div className="hw-container relative z-10">
           <FadeIn className="max-w-4xl">
-            <h1 className="hw-heading-hero text-white mb-6">
+            <h1 className="hw-heading-hero text-[var(--color-ink)] mb-6">
               Privacy <br />
-              <span className="text-[var(--color-dark-ink-muted)]">Policy.</span>
+              <span className="text-[var(--color-ink-muted)]">Policy.</span>
             </h1>
-            <p className="text-[var(--color-accent)] font-mono text-sm tracking-widest uppercase">Last Updated: April 2, 2026</p>
+            <p className="text-[var(--color-primary)] font-mono text-sm tracking-widest uppercase font-bold">Last Updated: April 2, 2026</p>
           </FadeIn>
         </div>
       </section>
