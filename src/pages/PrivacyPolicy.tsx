@@ -84,10 +84,10 @@ const PrivacyPolicy = () => {
                 <p className="mb-0 text-[var(--color-ink-secondary)]">
                   If you have any questions or concerns about this Privacy Policy, please contact us at:<br /><br />
                   <strong className="text-[var(--color-ink)]">Hearwell Speech and Hearing Centre</strong><br />
-                  Hariharraiyyer Rd, Opp. Govt Boys HSS<br />
-                  Perumbavoor, Kerala<br />
+                  <span className="font-semibold text-[var(--color-ink)]">Perumbavoor Clinic:</span> Hariharraiyyer Rd, Opp. Govt Boys HSS<br />
+                  <span className="font-semibold text-[var(--color-ink)]">Perinjanam Clinic:</span> Near Vadakke Bus Stop, 680686<br />
                   Email: hearwellspeechandhearing@gmail.com<br />
-                  Phone: +91 9633626656
+                  Phone: +91 9633626656 / +91 9947314906
                 </p>
               </SectionReveal>
             </div>
