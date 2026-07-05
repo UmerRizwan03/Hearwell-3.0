@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { imagetools } from 'vite-imagetools'
+import sitemap from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,6 +23,13 @@ export default defineConfig({
         }
         return new URLSearchParams()
       },
+    }),
+    sitemap({
+      hostname: 'https://hearwell.co.in',
+      dynamicRoutes: [
+        '/', '/about', '/doctor', '/services', '/hearing-aids', 
+        '/locations', '/contact', '/booking', '/privacy', '/terms'
+      ]
     }),
   ],
   build: {

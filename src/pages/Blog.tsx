@@ -1,134 +1,137 @@
-import { CalendarDays, ExternalLink } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { FadeIn, FadeScaleIn, SectionReveal, StaggerContainer, StaggerItem } from '../components/Motion';
-import { heroContainer, heroItem } from '../utils/motion';
-import OptimizedImage from '../components/OptimizedImage';
-import { MicroLabel } from '../components/MicroLabel';
-import SEO from '../components/SEO';
+import { CalendarDays } from 'lucide-react';
+import { FadeIn, SectionReveal, StaggerContainer, StaggerItem, Soundwave } from '../components/common/Motion';
+import OptimizedImage from '../components/common/OptimizedImage';
+import SEO from '../components/common/SEO';
 
 const Blog = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
       <SEO
-        title="Hearing Health Blog"
+        title="Hearing Health Journal | Hearwell"
         description="Expert articles on hearing health, speech development, and child wellness from Hearwell Speech & Hearing Centre."
-        url="https://hearwell.com/blog"
+        url="https://hearwell.co.in/blog"
+        keywords="hearing health blog Kerala, speech therapy articles, audiology research Perumbavoor, child speech development tips"
       />
-      {/* Typography-First Journal Header */}
-      <section className="relative isolate pt-12 pb-24 lg:pt-24 lg:pb-36 bg-[#F8FAF9] border-b border-gray-100 overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div variants={heroContainer} initial="hidden" animate="visible" className="max-w-4xl">
-            <MicroLabel label="Our Journal" />
+
+      {/* ─── Light Editorial Hero ─── */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-transparent border-b border-[var(--color-border)]">
+        <div className="hw-container relative z-10">
+          <FadeIn className="max-w-4xl">
+            <div className="flex items-center gap-4 mb-6">
+              <Soundwave bars={4} color="var(--color-primary)" className="h-4" />
+              <span className="hw-caption text-[var(--color-primary)] font-bold">Research & Journal</span>
+            </div>
+            <h1 className="hw-heading-hero text-[var(--color-ink)] mb-6">
+              Insights & <br />
+              <span className="text-[var(--color-ink-muted)]">Research.</span>
+            </h1>
             
-            <motion.h1 
-              variants={heroItem} 
-              className="editorial-heading font-serif mb-8"
-            >
-              Insights & <br /><span className="italic">Research.</span>
-            </motion.h1>
-            
-            <motion.p 
-              variants={heroItem} 
-              className="text-xl lg:text-2xl text-gray-600 font-sans leading-relaxed text-balance"
-            >
-              Expert insights and the latest updates in speech and hearing care, curated for our community.
-            </motion.p>
-          </motion.div>
+            <p className="hw-body-lg text-[var(--color-ink-secondary)] text-balance max-w-2xl">
+              Expert insights and the latest updates in speech and hearing care, curated for our community by the clinicians at Hearwell.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      <SectionReveal className="py-24 md:py-36">
-        <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
+      {/* ─── Journal Layout ─── */}
+      <SectionReveal className="hw-section pt-16 lg:pt-24">
+        <div className="hw-container">
           
           {/* Featured Article */}
-          <FadeScaleIn className="mb-20">
-            <article className="group block bg-white modern-card card-hover-lift relative overflow-hidden rounded-lg shadow-md border border-gray-100">
-               <div className="absolute top-6 left-6 z-20 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shadow-sm">
+          <FadeIn className="mb-24">
+            <article className="group block bg-white hw-card rounded-[var(--radius-xl)] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+               <div className="absolute top-6 left-6 z-20 bg-[var(--color-primary)] text-white text-[10px] font-bold px-3 py-1.5 rounded-[var(--radius-sm)] uppercase tracking-wider shadow-sm">
                  Featured
                </div>
-               <div className="relative h-[28rem] md:h-[34rem] w-full bg-gray-200 overflow-hidden">
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
-                 <OptimizedImage src="/images/blog-banner.webp" alt="Early intervention in speech therapy" className="transform group-hover:scale-105 transition-transform duration-700" />
+               <div className="relative h-[28rem] md:h-[34rem] w-full bg-[var(--color-surface)] overflow-hidden">
+                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/90 via-[var(--color-ink)]/20 to-transparent z-10 transition-opacity group-hover:opacity-90"></div>
+                 <OptimizedImage src="/images/aboutBanner.webp" alt="Early intervention in speech therapy" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                  
                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20">
-                    <div className="flex items-center gap-4 text-white/80 text-sm font-medium mb-3">
+                    <div className="flex items-center gap-4 text-white/80 text-xs font-mono uppercase tracking-wider font-bold mb-4">
                       <span>Therapy</span>
                       <span className="w-1 h-1 rounded-full bg-white/50"></span>
                       <span className="flex items-center gap-1.5"><CalendarDays size={14}/> Oct 15, 2026</span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight text-white mb-4 group-hover:text-blue-50 transition-colors max-w-4xl">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 max-w-4xl leading-tight">
                       Understanding the Importance of Early Intervention in Speech Therapy
                     </h2>
+                    <span className="inline-flex items-center gap-2 text-white/50 font-semibold cursor-default">
+                     Coming Soon
+                   </span>
                  </div>
                </div>
             </article>
-          </FadeScaleIn>
+          </FadeIn>
 
           {/* Article List */}
           <FadeIn>
-            <h3 className="text-4xl font-semibold tracking-tight text-gray-900 mb-10 pb-5 border-b border-gray-100">Latest Articles</h3>
+            <h3 className="hw-heading-section mb-10 pb-4 border-b border-[var(--color-border)]">Latest Articles</h3>
           </FadeIn>
 
-          <StaggerContainer className="space-y-14">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <StaggerItem>
-              <article className="flex flex-col sm:flex-row gap-7 md:gap-10 group border-b border-gray-100 pb-14">
-                 <div className="shrink-0 w-full sm:w-48 md:w-64 aspect-video sm:aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden relative">
-                    <OptimizedImage src="/images/hero.webp" alt="" className="transform group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" disableBlur />
+              <article className="group hw-card h-full flex flex-col p-6 lg:p-8">
+                 <div className="w-full aspect-[4/3] bg-[var(--color-surface)] rounded-[var(--radius-md)] overflow-hidden relative mb-6">
+                    <OptimizedImage src="/images/hearing-test.webp" alt="Hearing Care" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  </div>
-                 <div className="flex flex-col justify-center flex-grow py-2">
-                   <div className="flex items-center gap-3 text-sm text-gray-500 font-medium mb-3">
-                      <span className="text-primary bg-primary/10 px-2 py-0.5 rounded-md">Hearing Care</span>
+                 <div className="flex flex-col flex-grow">
+                   <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-wider text-[var(--color-ink-muted)] uppercase mb-4">
+                      <span className="text-[var(--color-primary)]">Hearing Care</span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
                       <span>Oct 12</span>
                    </div>
-                   <h4 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                   <h4 className="text-xl font-display font-bold text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
                       How Custom Hearing Aids Improve Quality of Life
                    </h4>
-                   <p className="text-gray-600 mb-4 line-clamp-2">Discover the profound impact that properly fitted, modern digital hearing aids can have on daily interactions and mental wellbeing.</p>
-                   <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-2 transition-all mt-auto cursor-default">
-                     Read Full Article <ExternalLink size={16} />
+                   <p className="text-[var(--color-ink-secondary)] text-sm mb-6 line-clamp-3">Discover the profound impact that properly fitted, modern digital hearing aids can have on daily interactions and mental wellbeing.</p>
+                   <span className="inline-flex items-center gap-1.5 text-[var(--color-ink-muted)] font-semibold text-sm mt-auto cursor-default">
+                     Coming Soon
                    </span>
                  </div>
               </article>
             </StaggerItem>
 
             <StaggerItem>
-              <article className="flex flex-col sm:flex-row gap-7 md:gap-10 group border-b border-gray-100 pb-14">
-                 <div className="shrink-0 w-full sm:w-48 md:w-64 aspect-video sm:aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden relative">
-                    <OptimizedImage src="/images/blog-child-iep.webp" alt="Child in educational therapy session" className="transform group-hover:scale-110 transition-transform duration-500" disableBlur />
+              <article className="group hw-card h-full flex flex-col p-6 lg:p-8">
+                 <div className="w-full aspect-[4/3] bg-[var(--color-surface)] rounded-[var(--radius-md)] overflow-hidden relative mb-6">
+                    <OptimizedImage src="/images/child-development.webp" alt="Child Development" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  </div>
-                 <div className="flex flex-col justify-center flex-grow py-2">
-                   <div className="flex items-center gap-3 text-sm text-gray-500 font-medium mb-3">
-                      <span className="text-primary bg-primary/10 px-2 py-0.5 rounded-md">Child Development</span>
+                 <div className="flex flex-col flex-grow">
+                   <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-wider text-[var(--color-ink-muted)] uppercase mb-4">
+                      <span className="text-[var(--color-primary)]">Child Dev</span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
                       <span>Oct 08</span>
                    </div>
-                   <h4 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                   <h4 className="text-xl font-display font-bold text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
                       5 Signs Your Child Might Need an IEP
                    </h4>
-                   <p className="text-gray-600 mb-4 line-clamp-2">Understanding the subtle early indicators that your child could benefit from an Individualised Education Program at school.</p>
-                   <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-2 transition-all mt-auto cursor-default">
-                     Read Full Article <ExternalLink size={16} />
+                   <p className="text-[var(--color-ink-secondary)] text-sm mb-6 line-clamp-3">Understanding the subtle early indicators that your child could benefit from an Individualized Education Program at school.</p>
+                   <span className="inline-flex items-center gap-1.5 text-[var(--color-ink-muted)] font-semibold text-sm mt-auto cursor-default">
+                     Coming Soon
                    </span>
                  </div>
               </article>
             </StaggerItem>
 
             <StaggerItem>
-              <article className="flex flex-col sm:flex-row gap-7 md:gap-10 group border-b border-gray-100 pb-14">
-                 <div className="shrink-0 w-full sm:w-48 md:w-64 aspect-video sm:aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden relative">
-                    <OptimizedImage src="/images/blog-newborn-screening.webp" alt="Newborn hearing screening" className="transform group-hover:scale-110 transition-transform duration-500" disableBlur />
+              <article className="group hw-card h-full flex flex-col p-6 lg:p-8">
+                 <div className="w-full aspect-[4/3] bg-[var(--color-surface)] rounded-[var(--radius-md)] overflow-hidden relative mb-6">
+                    <OptimizedImage src="/images/occupational-therapy.webp" alt="Audiology" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                  </div>
-                 <div className="flex flex-col justify-center flex-grow py-2">
-                   <div className="flex items-center gap-3 text-sm text-gray-500 font-medium mb-3">
-                      <span className="text-primary bg-primary/10 px-2 py-0.5 rounded-md">Audiology</span>
+                 <div className="flex flex-col flex-grow">
+                   <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-wider text-[var(--color-ink-muted)] uppercase mb-4">
+                      <span className="text-[var(--color-primary)]">Audiology</span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
                       <span>Sep 29</span>
                    </div>
-                   <h4 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                      What to Expect During a Newborn Hearing Screening (OAE)
+                   <h4 className="text-xl font-display font-bold text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
+                      What to Expect During a Newborn Hearing Screening
                    </h4>
-                   <p className="text-gray-600 mb-4 line-clamp-2">A comprehensive parent's guide to the OAE process right after birth, explaining why it is painless and utterly crucial.</p>
-                   <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-2 transition-all mt-auto cursor-default">
-                     Read Full Article <ExternalLink size={16} />
+                   <p className="text-[var(--color-ink-secondary)] text-sm mb-6 line-clamp-3">A comprehensive parent's guide to the OAE process right after birth, explaining why it is painless and utterly crucial.</p>
+                   <span className="inline-flex items-center gap-1.5 text-[var(--color-ink-muted)] font-semibold text-sm mt-auto cursor-default">
+                     Coming Soon
                    </span>
                  </div>
               </article>
@@ -138,28 +141,56 @@ const Blog = () => {
         </div>
       </SectionReveal>
 
-      {/* Newsletter Signup */}
-      <SectionReveal className="bg-primary-gradient py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-8">
+      {/* ─── SEO Rich Text Section (Local SEO Boost) ─── */}
+      <SectionReveal className="hw-section bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+        <div className="hw-container">
+          <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[var(--radius-xl)] shadow-sm border border-[var(--color-border)]">
+            <FadeIn>
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-[var(--color-ink)] mb-6">Leading Speech & Hearing Care in Kerala</h2>
+              <div className="hw-prose text-[var(--color-ink-secondary)] text-sm md:text-base space-y-4 leading-relaxed">
+                <p>
+                  At Hearwell Speech and Hearing Centre, we are dedicated to providing the highest standard of audiological care and speech therapy across Kerala. With state-of-the-art clinics located in <strong>Perumbavoor</strong> and <strong>Perinjanam</strong>, our team of highly qualified audiologists and speech-language pathologists bring world-class diagnostic and rehabilitative services closer to home.
+                </p>
+                <p>
+                  Whether you are seeking the <strong>best audiologist in Perumbavoor</strong> for advanced hearing aid fittings, or comprehensive <strong>pediatric speech therapy in Perinjanam</strong>, Hearwell combines clinical precision with deep empathy. We specialize in everything from newborn hearing screenings (OAE) and customized digital hearing aids (including invisible and Bluetooth models from Starkey, Phonak, and Widex) to Auditory Verbal Therapy (AVT) and school readiness programs. 
+                </p>
+                <p>
+                  Our mission is simple: to help the people of Kerala overcome speech and hearing challenges, empowering them to connect, communicate, and thrive. Book a consultation today to experience the Hearwell difference.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </SectionReveal>
+
+      {/* ─── Newsletter Signup ─── */}
+      <SectionReveal className="py-24 bg-[var(--color-dark-bg)] text-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-primary)] opacity-20 blur-[120px] rounded-full pointer-events-none" />
+        </div>
+        
+        <div className="hw-container relative z-10">
           <FadeIn className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">Stay informed on hearing care.</h2>
-            <p className="text-white/80 mb-10 text-lg">Subscribe to our monthly newsletter for expert tips, clinic updates, and educational resources directly to your inbox.</p>
+            <h2 className="hw-heading-section text-white mb-4">Stay informed on hearing care.</h2>
+            <p className="hw-body-lg text-[var(--color-dark-ink-muted)] mb-10">
+              Subscribe to our monthly newsletter for expert tips, clinic updates, and educational resources directly to your inbox.
+            </p>
             
             <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
                 placeholder="Enter your email address" 
-                className="flex-grow bg-white/10 border border-white/20 text-white placeholder:text-white/60 px-6 py-4 rounded-lg outline-none focus:bg-white/20 focus:border-white transition-colors duration-300"
+                className="flex-grow bg-white/5 border border-white/10 text-white placeholder:text-white/40 px-6 py-4 rounded-[var(--radius-md)] outline-none focus:bg-white/10 focus:border-[var(--color-primary)] transition-colors duration-300"
                 required
               />
               <button 
                 type="submit"
-                className="bg-white text-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-50 hover:shadow-lg hover:scale-[1.02] transition-all"
+                className="hw-btn hw-btn-accent px-8"
               >
                 Subscribe
               </button>
             </form>
-            <p className="text-white/50 text-xs mt-4">We respect your privacy. No spam, ever.</p>
+            <p className="text-white/40 text-xs mt-6">We respect your privacy. No spam, ever.</p>
           </FadeIn>
         </div>
       </SectionReveal>
@@ -169,3 +200,4 @@ const Blog = () => {
 };
 
 export default Blog;
+

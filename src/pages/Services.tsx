@@ -1,174 +1,338 @@
-import { Ear, Mic2, Puzzle, Waves, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Ear, Mic2, Waves, Puzzle, ShieldCheck, Heart, BookOpen, ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { FadeIn, FadeScaleIn, SectionReveal, StaggerContainer, StaggerItem, SectionDivider } from '../components/Motion';
-import { heroContainer, heroItem, animatedDivider } from '../utils/motion';
-import OptimizedImage from '../components/OptimizedImage';
-import { MicroLabel } from '../components/MicroLabel';
-import SEO from '../components/SEO';
+import { FadeIn, SectionReveal } from '../components/common/Motion';
+import OptimizedImage from '../components/common/OptimizedImage';
+import SEO from '../components/common/SEO';
+
+const clinicalServices = [
+  {
+    id: 'audiology',
+    title: 'Hearing Testing & Audiology',
+    icon: Ear,
+    image: '/images/hearing-testing-and-audiology.webp',
+    description: 'State-of-the-art diagnostic evaluations for all ages. We offer comprehensive audiometry, tympanometry, and specialist OAE (Newborn Hearing Screening) to detect issues early and accurately.',
+    features: [
+      'Pure Tone Audiometry (PTA)',
+      'OAE Newborn Screening',
+      'Impedance Audiometry',
+      'Hearing Aid Trial & Fitting'
+    ],
+    link: '/hearing-aids',
+    linkText: 'View Hearing Aids'
+  },
+  {
+    id: 'speech',
+    title: 'Speech Therapy',
+    icon: Mic2,
+    image: '/images/speech-therapy.webp',
+    description: 'Expert therapy addressing articulation disorders, stuttering, voice disorders, and language delays in both children and adults. Our scientific, compassionate approach builds confidence.',
+    features: [
+      'Articulation & Phonology',
+      'Stuttering & Fluency Support',
+      'Adult Aphasia Recovery',
+      'Language Delay Intervention'
+    ],
+    link: '/contact',
+    linkText: 'Consult a Specialist'
+  },
+  {
+    id: 'avt',
+    title: 'Auditory Verbal Therapy',
+    icon: Waves,
+    image: '/images/auditory-verbal-therapy.webp',
+    description: 'A highly structured, evidence-based early intervention program designed to teach children with hearing impairments to listen and speak using residual hearing or cochlear implants.',
+    features: [
+      'Early Intervention Focus',
+      'Parent-Guided Sessions',
+      'Auditory Skill Integration',
+      'Cochlear Implant Rehab'
+    ],
+    link: '/contact',
+    linkText: 'Learn More About AVT'
+  }
+];
+
+const developmentalServices = [
+  {
+    id: 'occupational-therapy',
+    title: 'Occupational Therapy',
+    icon: Puzzle,
+    image: '/images/occupational-therapy.webp',
+    description: 'Specialized therapy helping children develop the fine motor, gross motor, sensory processing, and daily life skills required to navigate school, play, and learning environments.',
+    link: '/contact',
+    linkText: 'Consult a Specialist'
+  },
+  {
+    id: 'iep',
+    title: 'IEP Support',
+    icon: ShieldCheck,
+    image: '/images/iep-support.webp',
+    description: 'Comprehensive educational support plans tailored to each child\'s unique learning pace and needs, ensuring academic inclusion and collaborative school integration.',
+    link: '/contact',
+    linkText: 'Inquire About IEP'
+  },
+  {
+    id: 'school-readiness',
+    title: 'School Readiness',
+    icon: BookOpen,
+    image: '/images/school-readiness.webp',
+    description: 'Structured preparation ensuring young children develop crucial communicative, cognitive, motor, and social pre-skills for a successful transition to primary school.',
+    link: '/contact',
+    linkText: 'Learn About Programs'
+  },
+  {
+    id: 'special-care',
+    title: 'Special Care & Education',
+    icon: Heart,
+    image: '/images/special-care.webp',
+    description: 'Dedicated support for children with diverse developmental and learning profiles. We provide customized educational strategies and nurturing care in a safe environment.',
+    link: '/contact',
+    linkText: 'Inquire About Special Care'
+  }
+];
 
 const Services = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
       <SEO
-        title="Our Clinical Services"
-        description="Hearwell offers hearing testing, audiology, speech therapy, AVT, and child development programs in Perumbavoor & Perinjanam."
-        url="https://hearwell.com/services"
+        title="Our Services | Speech & Hearing Care"
+        description="Comprehensive clinical diagnostics, pediatric therapies, and childhood development programs under one roof."
+        url="https://hearwell.co.in/services"
+        keywords="speech therapy services Kerala, audiology services Perumbavoor, hearing test Perinjanam, pediatric speech therapy Kerala, IEP support Kerala"
       />
-      {/* Typography-First Index Framework Header */}
-      <section className="relative isolate pt-12 pb-24 lg:pt-24 lg:pb-36 bg-[#F8FAF9]">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div variants={heroContainer} initial="hidden" animate="visible" className="max-w-4xl">
-            <MicroLabel label="Our Clinical Services" />
-            
-            <motion.h1 
-              variants={heroItem} 
-              className="editorial-heading font-sans font-medium mb-8"
-            >
-              Comprehensive Care. <br />
-              <span className="text-gray-400">Expert Solutions.</span>
-            </motion.h1>
-            
-            <motion.p 
-              variants={heroItem} 
-              className="text-xl lg:text-2xl text-gray-600 font-sans leading-relaxed text-balance"
-            >
-              From advanced clinical audiology to compassionate speech therapy and childhood development programs under one roof.
-            </motion.p>
-          </motion.div>
+
+      {/* ─── Directory Split Hero ─── */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 border-b border-[var(--color-border)] bg-white overflow-hidden">
+
+        {/* Premium Dynamic Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Base gradient tint */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-surface)]/80 to-white" />
+
+          {/* High-impact Aurora Mesh */}
+          <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[80%] bg-[var(--color-primary)] opacity-[0.08] rounded-full blur-[100px] mix-blend-multiply" />
+          <div className="absolute top-[10%] right-[0%] w-[60%] h-[100%] bg-[#22D3EE] opacity-[0.06] rounded-[40%_60%_70%_30%] blur-[120px] mix-blend-multiply animate-[spin_40s_linear_infinite]" />
+
+          {/* Architectural Block Grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808015_1px,transparent_1px),linear-gradient(to_bottom,#80808015_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_40%,transparent_100%)]" />
+
+          {/* Large Abstract Soundwave / Ripple Graphic */}
+          <div className="absolute top-1/2 right-0 w-[1000px] h-[1000px] -translate-y-1/2 translate-x-[30%] opacity-[0.05]">
+            {Array.from({ length: 14 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute border border-black rounded-full"
+                style={{ inset: `${i * 3.5}%` }}
+              />
+            ))}
+          </div>
         </div>
-        
-        {/* Structural animated divider tying the header to the content */}
-        <motion.div 
-          variants={animatedDivider} 
-          initial="hidden" 
-          animate="visible" 
-          className="absolute bottom-0 left-0 w-full h-[1px] bg-gray-200"
-        />
+
+        <div className="hw-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <FadeIn>
+                <h1 className="hw-heading-hero text-[var(--color-ink)] mb-6">
+                  Comprehensive Care.
+                </h1>
+                <p className="hw-body-lg text-[var(--color-ink-secondary)] text-balance max-w-xl">
+                  From advanced clinical diagnostics to pediatric therapies and childhood development programs, we provide evidence-based care under one roof.
+                </p>
+              </FadeIn>
+            </div>
+            <div className="lg:col-span-5">
+              <FadeIn delay={0.15}>
+                <div className="flex flex-col gap-3">
+                  <a href="#clinical" className="group flex items-center justify-between p-5 rounded-2xl border border-[var(--color-border)] bg-white hover:border-[var(--color-primary)] transition-colors shadow-sm">
+                    <span className="font-display font-bold text-lg text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors">Clinical & Audiology</span>
+                    <ArrowRight size={20} className="text-[var(--color-ink-muted)] group-hover:text-[var(--color-primary)] group-hover:translate-x-1 transition-all" aria-hidden="true" />
+                  </a>
+                  <a href="#developmental" className="group flex items-center justify-between p-5 rounded-2xl border border-[var(--color-border)] bg-white hover:border-[var(--color-primary)] transition-colors shadow-sm">
+                    <span className="font-display font-bold text-lg text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors">Child Development</span>
+                    <ArrowRight size={20} className="text-[var(--color-ink-muted)] group-hover:text-[var(--color-primary)] group-hover:translate-x-1 transition-all" aria-hidden="true" />
+                  </a>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <SectionReveal className="py-24 lg:py-36 relative">
-        <div className="absolute right-0 top-52 w-1/4 h-72 bg-primary/5 transform -skew-y-6 hidden lg:block"></div>
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          
-          {/* Feature Block: Audiology (Full Width) */}
-          <FadeIn className="flex flex-col lg:flex-row bg-white modern-card card-hover-glow relative overflow-hidden rounded-lg shadow-sm border border-gray-100 mb-14 group">
-            <FadeScaleIn className="w-full lg:w-1/2 bg-gray-100 min-h-[380px] relative overflow-hidden">
-               <OptimizedImage src="/images/hearing-test.webp" alt="Hearing Test Diagnostic" className="group-hover:scale-105 transition-transform duration-700" />
-            </FadeScaleIn>
-            <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-8">
-                <Ear size={28} />
+      {/* ─── Clinical & Audiology Directory ─── */}
+      <section id="clinical" className="hw-section bg-[var(--color-surface)] scroll-mt-24">
+        <div className="hw-container">
+          <SectionReveal className="mb-12">
+            <h2 className="hw-heading-section text-[var(--color-ink)]">Clinical & Audiology</h2>
+            <div className="w-12 h-1 bg-[var(--color-primary)] mt-4" aria-hidden="true" />
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {clinicalServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <FadeIn key={service.id} delay={index * 0.1} className="flex flex-col h-full min-h-[550px] bg-white rounded-[var(--radius-xl)] overflow-hidden shadow-md group ring-1 ring-[var(--color-border-subtle)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]">
+
+                  {/* Top Image Area */}
+                  <div className="relative h-64 sm:h-72 w-full shrink-0 bg-white flex flex-col justify-end overflow-hidden">
+                    <OptimizedImage
+                      src={service.image}
+                      alt={service.title}
+                      containerClassName="absolute inset-0"
+                      className="w-full h-full object-contain object-center transition-transform duration-1000 group-hover:scale-105"
+                    />
+                    {/* Blur effect where text elements begin */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent backdrop-blur-[2px] pointer-events-none z-10" />
+                  </div>
+
+                  {/* Text Area */}
+                  <div className="flex flex-col flex-1 relative z-20">
+                    <div className="p-6 md:p-8 flex flex-col flex-1 bg-white">
+
+                      <div className="flex items-center gap-4 mb-4 text-[var(--color-ink)]">
+                        <div className="w-12 h-12 rounded-full bg-white shadow-sm border border-black/5 flex items-center justify-center shrink-0">
+                          <Icon size={24} className="text-[var(--color-primary)]" aria-hidden="true" />
+                        </div>
+                        <h3 className="text-xl font-display font-bold leading-tight pt-1">{service.title}</h3>
+                      </div>
+
+                      <p className="hw-body text-[var(--color-ink-secondary)] mb-6 flex-1 text-sm md:text-base font-medium">
+                        {service.description}
+                      </p>
+
+                      <ul className="space-y-2 mb-8 mt-auto" role="list">
+                        {service.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-sm text-[var(--color-ink)] font-semibold">
+                            <Check size={16} className="text-[var(--color-primary)] mt-0.5 shrink-0" aria-hidden="true" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link
+                        to={service.link}
+                        className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] font-bold text-sm transition-all group-hover:gap-3 uppercase tracking-wide"
+                      >
+                        {service.linkText} <ArrowRight size={16} aria-hidden="true" />
+                      </Link>
+
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Child Development Grid ─── */}
+      <section id="developmental" className="hw-section bg-transparent scroll-mt-24 border-t border-[var(--color-border)]">
+        <div className="hw-container">
+          <SectionReveal className="mb-12">
+            <h2 className="hw-heading-section text-[var(--color-ink)]">Child Development Programs</h2>
+            <div className="w-12 h-1 bg-[var(--color-primary)] mt-4" aria-hidden="true" />
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {developmentalServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <FadeIn key={service.id} delay={index * 0.1} className="flex flex-col h-full min-h-[450px] md:min-h-[500px] bg-white rounded-[var(--radius-xl)] overflow-hidden shadow-md group ring-1 ring-[var(--color-border-subtle)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]">
+
+                  {/* Top Image Area */}
+                  <div className="relative h-60 sm:h-64 w-full shrink-0 bg-white flex flex-col justify-end overflow-hidden">
+                    <OptimizedImage
+                      src={service.image}
+                      alt={service.title}
+                      containerClassName="absolute inset-0"
+                      className="w-full h-full object-contain object-center transition-transform duration-1000 group-hover:scale-105"
+                    />
+                    {/* Blur effect where text elements begin */}
+                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white via-white/80 to-transparent backdrop-blur-[2px] pointer-events-none z-10" />
+                  </div>
+
+                  {/* Text Area */}
+                  <div className="flex flex-col flex-1 relative z-20">
+                    <div className="p-6 md:p-8 flex flex-col flex-1 bg-white">
+
+                      <div className="flex items-center gap-4 mb-4 text-[var(--color-ink)]">
+                        <div className="w-12 h-12 rounded-full bg-white shadow-sm border border-black/5 flex items-center justify-center shrink-0">
+                          <Icon size={24} className="text-[var(--color-primary)]" aria-hidden="true" />
+                        </div>
+                        <h3 className="text-xl font-display font-bold leading-tight pt-1">{service.title}</h3>
+                      </div>
+
+                      <p className="hw-body text-[var(--color-ink-secondary)] mb-6 flex-1 text-sm md:text-base font-medium">
+                        {service.description}
+                      </p>
+
+                      <Link
+                        to={service.link}
+                        className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] font-bold text-sm transition-all group-hover:gap-3 uppercase tracking-wide"
+                      >
+                        {service.linkText} <ArrowRight size={16} aria-hidden="true" />
+                      </Link>
+
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Grounded CTA ─── */}
+      <SectionReveal className="py-12 lg:py-20 bg-transparent">
+        <div className="hw-container">
+          <div className="relative rounded-[2rem] overflow-hidden bg-[var(--color-primary)] shadow-2xl">
+            {/* Atmospheric Background */}
+            <img
+              src="/images/hearing-testing-and-audiology.webp"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay pointer-events-none"
+              loading="lazy"
+              aria-hidden="true"
+            />
+
+            {/* Elegant Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary)]/90 to-transparent pointer-events-none" />
+
+            <div className="relative p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+
+              {/* Left Side: Typography */}
+              <div className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-semibold mb-6 border border-white/20 shadow-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+                  </span>
+                  Accepting New Patients
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white mb-4 leading-[1.2] text-balance">
+                  Take the first step toward better communication.
+                </h2>
+                <p className="text-base md:text-lg text-white/90 max-w-xl text-balance font-medium">
+                  Our specialists are ready to guide you with professional assessments and customized therapy plans.
+                </p>
               </div>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-gray-900 mb-5">Hearing Testing & Audiology</h2>
-              <p className="text-gray-600 mb-6 text-lg">
-                State-of-the-art diagnostic evaluations for all ages. We offer comprehensive audiometry, tympanometry, and specialist OAE (Newborn Hearing Screening) to detect issues early.
-              </p>
-              <ul className="space-y-3 mb-8 text-gray-600 font-medium">
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Pure Tone Audiometry</li>
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> OAE (Newborn Screening)</li>
-                <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Digital Hearing Aids Fitting</li>
-              </ul>
-              <Link to="/hearing-aids" className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
-                View Hearing Aids <ArrowRight size={18} />
-              </Link>
+
+              {/* Right Side: Actions */}
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-4 w-full sm:w-auto shrink-0">
+                <Link to="/booking" className="hw-btn hw-btn-white w-full sm:w-auto shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all font-bold">
+                  Book Assessment
+                </Link>
+                <Link to="/contact" className="hw-btn text-white border-2 border-white/30 hover:bg-white/10 transition-colors w-full sm:w-auto font-bold">
+                  Contact Clinic
+                </Link>
+              </div>
             </div>
-          </FadeIn>
-
-          {/* Split Row: Speech Therapy & AVT */}
-          <StaggerContainer className="flex flex-col lg:flex-row gap-8 mb-14">
-            <StaggerItem className="w-full lg:w-1/2 bg-gray-50 rounded-lg p-10 lg:p-12 card-hover-border group relative overflow-hidden lg:translate-y-10">
-              <div className="absolute inset-0 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                <OptimizedImage src="/images/speech-therapy.webp" alt="" className="grayscale" disableBlur />
-              </div>
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="w-12 h-12 rounded-lg bg-white text-primary flex items-center justify-center mb-6 shadow-sm border border-gray-100">
-                  <Mic2 size={24} />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Speech Therapy</h3>
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  Expert therapy addressing articulation disorders, stuttering, voice disorders, and language delays in both children and adults. Our approach builds confidence and clarity.
-                </p>
-                <Link to="/contact" className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all mt-auto">
-                  Consult a Therapist <ArrowRight size={18} />
-                </Link>
-              </div>
-            </StaggerItem>
-
-            <StaggerItem className="w-full lg:w-1/2 bg-white modern-card card-hover-glow relative overflow-hidden rounded-lg p-10 lg:p-12 border border-primary/10 group">
-               <div className="absolute inset-0 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                <OptimizedImage src="/images/child-development.webp" alt="" className="sepia-[.2]" disableBlur />
-              </div>
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6">
-                  <Waves size={24} />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">AVT (Auditory Verbal Therapy)</h3>
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  A highly structured program designed to teach children with hearing impairments to listen and speak using their amplified residual hearing or cochlear implants.
-                </p>
-                <Link to="/contact" className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all mt-auto">
-                  Learn More <ArrowRight size={18} />
-                </Link>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
-
+          </div>
         </div>
       </SectionReveal>
 
-      <SectionDivider />
-
-      {/* Child Development Mosaic */}
-      <SectionReveal className="py-24 lg:py-36 bg-gray-50 border-t border-gray-100">
-        <div className="container mx-auto px-6 lg:px-8">
-          <FadeIn className="flex items-center gap-4 mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">Child Development Programs</h2>
-            <div className="h-px bg-gray-200 flex-grow"></div>
-          </FadeIn>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Large Block */}
-            <StaggerItem className="md:col-span-2 bg-primary text-white rounded-lg p-10 md:p-14 relative overflow-hidden group card-hover-lift">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl -mr-10 -mt-20"></div>
-              <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">School Readiness Program</h3>
-                <p className="text-white/90 text-lg mb-8 max-w-lg">
-                  Comprehensive preparation ensuring children have the essential communication, social, and academic pre-skills for a successful transition to school life.
-                </p>
-                <Link to="/programs" className="btn-white text-sm">
-                  Explore Programs
-                </Link>
-              </div>
-            </StaggerItem>
-
-            {/* Stacked Small Blocks */}
-            <div className="md:col-span-1 flex flex-col gap-6">
-              <StaggerItem className="bg-white modern-card card-hover-border relative overflow-hidden rounded-lg p-8 shadow-sm border border-gray-100 flex-grow flex flex-col group">
-                <div className="flex items-center gap-3 mb-3">
-                  <Puzzle size={20} className="text-primary" />
-                  <h4 className="font-bold text-gray-800 text-lg">Occupational Therapy</h4>
-                </div>
-                <p className="text-gray-500 text-sm mb-4">Enhancing fine motor skills, sensory processing, and daily living skills.</p>
-                <Link to="/programs" className="mt-auto text-sm text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Details <ArrowRight size={14} /></Link>
-              </StaggerItem>
-              
-              <StaggerItem className="bg-white modern-card card-hover-glow relative overflow-hidden rounded-lg p-8 shadow-sm border border-gray-100 flex-grow flex flex-col group">
-                 <div className="flex items-center gap-3 mb-3">
-                  <ShieldCheck size={20} className="text-primary" />
-                  <h4 className="font-bold text-gray-800 text-lg">IEP & Special Care</h4>
-                </div>
-                <p className="text-gray-500 text-sm mb-4">Individualised Education Programs tailored to unique developmental needs.</p>
-                <Link to="/programs" className="mt-auto text-sm text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Details <ArrowRight size={14} /></Link>
-              </StaggerItem>
-            </div>
-            
-          </StaggerContainer>
-        </div>
-      </SectionReveal>
     </div>
   );
 };
 
 export default Services;
+

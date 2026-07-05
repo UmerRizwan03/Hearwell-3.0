@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { FadeIn, SectionReveal, StaggerContainer, StaggerItem } from '../components/Motion';
-import { heroContainer, heroItem } from '../utils/motion';
-import { MicroLabel } from '../components/MicroLabel';
-import SEO from '../components/SEO';
+import { Phone, Mail, MessageCircle, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
+import { FadeIn, SectionReveal, StaggerContainer, StaggerItem, Soundwave } from '../components/common/Motion';
+import SEO from '../components/common/SEO';
 import { useFormSubmit } from '../hooks/useFormSubmit';
 
 const faqs = [
   {
     q: 'What are the modes of payment accepted?',
-    a: 'We accept payments via Cash, Cheque, and Demand Draft.',
+    a: 'We accept payments via Cash, Cheque, UPI, and Demand Draft.',
   },
   {
     q: 'Which is the nearest landmark to the Perumbavoor clinic?',
@@ -26,10 +22,6 @@ const faqs = [
     a: 'Walk-ins are welcome, but we strongly recommend booking an appointment to avoid waiting. You can book online through our website or call us directly.',
   },
   {
-    q: 'What age groups do you provide speech therapy for?',
-    a: 'We provide speech and language therapy for all age groups — from toddlers and young children to adolescents and adults. Early intervention is our specialty.',
-  },
-  {
     q: 'Do you offer trial periods for hearing aids?',
     a: 'Yes, we offer trial fittings so you can experience the hearing aid before committing to a purchase. Our audiologist will guide you through the entire process.',
   },
@@ -41,13 +33,13 @@ const FAQItem = ({ faq, isOpen, toggle, id }: { faq: typeof faqs[0]; isOpen: boo
     aria-expanded={isOpen}
     aria-controls={`faq-answer-${id}`}
     id={`faq-question-${id}`}
-    className="w-full text-left bg-white rounded-2xl border border-gray-100 hover:border-primary/20 transition-all duration-300 overflow-hidden group"
+    className="w-full text-left bg-white rounded-[var(--radius-lg)] border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-300 overflow-hidden group"
   >
     <div className="flex items-center justify-between p-6 gap-4">
-      <h4 className="font-semibold text-gray-800 group-hover:text-primary transition-colors">{faq.q}</h4>
+      <h4 className="font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors">{faq.q}</h4>
       <ChevronDown
         size={20}
-        className={`shrink-0 text-gray-400 group-hover:text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+        className={`shrink-0 text-[var(--color-ink-muted)] group-hover:text-[var(--color-primary)] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
       />
     </div>
     <div
@@ -57,7 +49,7 @@ const FAQItem = ({ faq, isOpen, toggle, id }: { faq: typeof faqs[0]; isOpen: boo
       className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
     >
       <div className="overflow-hidden">
-        <p className="px-6 pb-6 text-gray-500 leading-relaxed text-[15px]">{faq.a}</p>
+        <p className="px-6 pb-6 text-[var(--color-ink-secondary)] leading-relaxed text-sm">{faq.a}</p>
       </div>
     </div>
   </button>
@@ -68,123 +60,113 @@ const Contact = () => {
   const { isSubmitting, isSuccess, handleSubmit } = useFormSubmit();
 
   return (
-    <div className="bg-white min-h-[100dvh]">
+    <div className="bg-transparent min-h-[100dvh]">
       <SEO
-        title="Contact Us"
+        title="Contact Us | Hearwell"
         description="Get in touch with Hearwell Speech & Hearing Centre. Call, WhatsApp, or send us a message to schedule a consultation."
-        url="https://hearwell.com/contact"
+        url="https://hearwell.co.in/contact"
+        keywords="contact Hearwell, book audiologist Kerala, speech therapy appointment Perumbavoor"
       />
-      {/* Typography-First Trust Anchor Header */}
-      <section className="relative isolate pt-12 pb-28 lg:pt-24 lg:pb-44 bg-[#F8FAF9] border-b border-gray-100 overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div variants={heroContainer} initial="hidden" animate="visible" className="max-w-4xl">
-            <MicroLabel label="Contact Us" />
+
+      {/* ─── Centered Direct Hero ─── */}
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-[var(--color-surface)]">
+        <div className="hw-container relative z-10">
+          <FadeIn className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <div className="flex justify-center items-center gap-4 mb-8">
+              <Soundwave bars={4} color="var(--color-primary)" className="h-5" />
+              <span className="hw-caption text-[var(--color-primary)] font-bold tracking-widest uppercase">Support & Booking</span>
+              <Soundwave bars={4} color="var(--color-primary)" className="h-5 scale-x-[-1]" />
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[var(--color-ink)] mb-8 tracking-tight">
+              Start the <span className="text-[var(--color-primary)] font-serif italic">conversation.</span>
+            </h1>
             
-            <motion.h1 
-              variants={heroItem} 
-              className="editorial-heading font-serif mb-8"
-            >
-              Start the <br /><span className="italic">conversation.</span>
-            </motion.h1>
-            
-            <motion.p 
-              variants={heroItem} 
-              className="text-xl lg:text-2xl text-gray-600 font-sans leading-relaxed text-balance"
-            >
-              We're here to answer your questions and help you start your journey to better health.
-            </motion.p>
-          </motion.div>
+            <p className="hw-body-lg text-[var(--color-ink-secondary)] text-balance max-w-2xl mx-auto">
+              We're here to answer your questions and help you start your journey to better health. Reach out however you prefer.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      <SectionReveal className="pb-24 lg:pb-36 -mt-20 lg:-mt-32 relative z-20">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 max-w-6xl mx-auto">
+      {/* ─── Contact Info & Form ─── */}
+      <SectionReveal className="hw-section bg-[var(--color-surface)]">
+        <div className="hw-container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
-            {/* Contact Details Matrix */}
-            <StaggerContainer className="w-full lg:w-5/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-              
-              <StaggerItem className="bg-white p-7 rounded-lg shadow-sm border border-gray-100 flex items-start gap-5 hover:border-primary/20 hover:-translate-y-0.5 transition-all">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 mb-2">Call Us</h4>
-                  <a href="tel:+919633626656" className="block text-gray-600 hover:text-primary font-medium">+91 9633626656</a>
-                  <a href="tel:+919947314906" className="block text-gray-600 hover:text-primary font-medium">+91 9947314906</a>
-                </div>
-              </StaggerItem>
+            {/* Left: Contact Methods */}
+            <div className="lg:col-span-5 space-y-8">
+              <StaggerContainer className="flex flex-col gap-4">
+                
+                <StaggerItem className="hw-card p-6 flex items-start gap-5 hover:border-[var(--color-primary)] transition-colors">
+                  <div className="w-12 h-12 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-full flex items-center justify-center shrink-0">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[var(--color-ink)] mb-2">Call Us</h4>
+                    <a href="tel:+919633626656" className="block text-[var(--color-ink-secondary)] hover:text-[var(--color-primary)] font-medium mb-1">+91 9633626656</a>
+                    <a href="tel:+919947314906" className="block text-[var(--color-ink-secondary)] hover:text-[var(--color-primary)] font-medium">+91 9947314906</a>
+                  </div>
+                </StaggerItem>
 
-              <StaggerItem className="bg-white p-7 rounded-lg shadow-sm border border-gray-100 flex items-start gap-5 hover:border-primary/20 hover:-translate-y-0.5 transition-all lg:translate-x-8">
-                <div className="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-lg flex items-center justify-center shrink-0">
-                  <MessageCircle size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 mb-2">WhatsApp</h4>
-                  <p className="text-gray-500 text-sm mb-2">Message our clinic directly</p>
-                  <a href="https://wa.me/919633626656" target="_blank" rel="noreferrer" className="text-[#25D366] font-semibold hover:underline">Start Chat</a>
-                </div>
-              </StaggerItem>
+                <StaggerItem className="hw-card p-6 flex items-start gap-5 hover:border-[#25D366] transition-colors">
+                  <div className="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center shrink-0">
+                    <MessageCircle size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[var(--color-ink)] mb-2">WhatsApp</h4>
+                    <p className="text-[var(--color-ink-muted)] text-sm mb-2">Message our clinic directly</p>
+                    <a href="https://wa.me/919633626656" target="_blank" rel="noreferrer" className="text-[#25D366] font-semibold hover:underline">Start Chat</a>
+                  </div>
+                </StaggerItem>
 
-              <StaggerItem className="bg-white p-7 rounded-lg shadow-sm border border-gray-100 flex items-start gap-5 hover:border-primary/20 hover:-translate-y-0.5 transition-all">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 mb-2">Email</h4>
-                  <a href="mailto:hearwellspeechandhearing@gmail.com" className="block text-gray-600 hover:text-primary mb-1 break-all">hearwellspeechandhearing@gmail.com</a>
-                  <p className="text-xs text-gray-400">Response within 24 hours</p>
-                </div>
-              </StaggerItem>
+                <StaggerItem className="hw-card p-6 flex items-start gap-5 hover:border-[var(--color-primary)] transition-colors">
+                  <div className="w-12 h-12 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-full flex items-center justify-center shrink-0">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[var(--color-ink)] mb-2">Email</h4>
+                    <a href="mailto:hearwellspeechandhearing@gmail.com" className="block text-[var(--color-ink-secondary)] hover:text-[var(--color-primary)] mb-1 break-all">hearwellspeechandhearing@gmail.com</a>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Response within 24 hours</p>
+                  </div>
+                </StaggerItem>
 
-              <StaggerItem className="bg-white p-7 rounded-lg shadow-sm border border-gray-100 flex items-start gap-5 hover:border-primary/20 hover:-translate-y-0.5 transition-all lg:translate-x-8">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 mb-2">Visit Us</h4>
-                  <p className="text-gray-600 font-medium mb-1">Perumbavoor Branch</p>
-                  <p className="text-gray-600 font-medium mb-2">Perinjanam Branch</p>
-                  <Link to="/locations" className="text-xs text-primary font-semibold uppercase tracking-wider">View Maps</Link>
-                </div>
-              </StaggerItem>
+              </StaggerContainer>
+            </div>
 
-            </StaggerContainer>
-
-            {/* General Inquiry Form */}
-            <FadeIn className="w-full lg:w-7/12">
-              <div className="bg-white p-8 md:p-14 rounded-lg shadow-[0_24px_70px_-52px_rgba(18,56,52,0.8)] border border-gray-100 h-full">
-                <h3 className="text-4xl font-semibold tracking-tight text-gray-900 mb-10">Send us a message</h3>
+            {/* Right: Contact Form */}
+            <div className="lg:col-span-7">
+              <FadeIn className="bg-white p-8 md:p-12 rounded-[var(--radius-xl)] shadow-sm border border-[var(--color-border)] h-full">
+                <h2 className="text-3xl font-display font-bold text-[var(--color-ink)] mb-8">Send us a message</h2>
                 
                 {isSuccess ? (
-                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center flex flex-col items-center justify-center h-[400px]" aria-live="polite">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
+                  <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 text-center flex flex-col items-center justify-center h-[400px]" aria-live="polite">
+                    <div className="w-16 h-16 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center mb-6">
                       <CheckCircle size={32} />
                     </div>
-                    <h4 className="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h4>
-                    <p className="text-gray-600">Thank you for reaching out. A member of our clinical team will get back to you within 24 hours.</p>
+                    <h4 className="text-2xl font-bold text-[var(--color-ink)] mb-2">Message Sent!</h4>
+                    <p className="text-[var(--color-ink-secondary)]">Thank you for reaching out. A member of our clinical team will get back to you within 24 hours.</p>
                   </div>
                 ) : (
                   <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-semibold text-gray-700">Full Name</label>
+                        <label htmlFor="name" className="text-sm font-semibold text-[var(--color-ink)]">Full Name</label>
                         <input 
                           type="text" 
                           id="name" 
                           placeholder="John Doe" 
-                          className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-primary focus:border-primary block p-4 transition-colors duration-300 outline-none placeholder:text-gray-400"
+                          className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-ink)] text-sm rounded-[var(--radius-md)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-4 transition-all duration-300 outline-none placeholder:text-[var(--color-ink-muted)]"
                           required
                           disabled={isSubmitting}
                         />
                       </div>
                       <div className="space-y-2">
-                        <label htmlFor="phone" className="text-sm font-semibold text-gray-700">Phone Number</label>
+                        <label htmlFor="phone" className="text-sm font-semibold text-[var(--color-ink)]">Phone Number</label>
                         <input 
                           type="tel" 
                           id="phone" 
                           placeholder="+91 99999 99999" 
-                          className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-primary focus:border-primary block p-4 transition-colors duration-300 outline-none placeholder:text-gray-400"
+                          className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-ink)] text-sm rounded-[var(--radius-md)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-4 transition-all duration-300 outline-none placeholder:text-[var(--color-ink-muted)]"
                           required
                           disabled={isSubmitting}
                         />
@@ -192,24 +174,24 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="subject" className="text-sm font-semibold text-gray-700">Subject</label>
+                      <label htmlFor="subject" className="text-sm font-semibold text-[var(--color-ink)]">Subject</label>
                       <input 
                         type="text" 
                         id="subject" 
                         placeholder="How can we help?" 
-                        className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-primary focus:border-primary block p-4 transition-colors duration-300 outline-none placeholder:text-gray-400"
+                        className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-ink)] text-sm rounded-[var(--radius-md)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-4 transition-all duration-300 outline-none placeholder:text-[var(--color-ink-muted)]"
                         required
                         disabled={isSubmitting}
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-semibold text-gray-700">Message</label>
+                      <label htmlFor="message" className="text-sm font-semibold text-[var(--color-ink)]">Message</label>
                       <textarea 
                         id="message" 
                         rows={5}
                         placeholder="Please describe your inquiry..." 
-                        className="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-lg focus:ring-primary focus:border-primary block p-4 transition-colors duration-300 outline-none resize-none placeholder:text-gray-400"
+                        className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-ink)] text-sm rounded-[var(--radius-md)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-4 transition-all duration-300 outline-none resize-none placeholder:text-[var(--color-ink-muted)]"
                         required
                         disabled={isSubmitting}
                       ></textarea>
@@ -218,7 +200,7 @@ const Contact = () => {
                     <button 
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-primary w-full text-lg py-4 shadow-md mt-4 flex justify-center items-center gap-2 disabled:opacity-70"
+                      className="hw-btn hw-btn-primary w-full text-lg py-4 mt-4 disabled:opacity-70"
                     >
                       {isSubmitting ? (
                         <>
@@ -231,19 +213,19 @@ const Contact = () => {
                     </button>
                   </form>
                 )}
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
 
           </div>
         </div>
       </SectionReveal>
 
-      {/* FAQ Section */}
-      <SectionReveal className="py-24 lg:py-36 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
-          <FadeIn className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-500">Quick answers to the questions we hear most often.</p>
+      {/* ─── FAQs ─── */}
+      <SectionReveal className="hw-section bg-transparent border-t border-[var(--color-border)]">
+        <div className="hw-container max-w-3xl">
+          <FadeIn className="text-center mb-12">
+            <h2 className="hw-heading-section mb-4">Frequently Asked Questions</h2>
+            <p className="hw-body-lg text-[var(--color-ink-secondary)]">Quick answers to the questions we hear most often.</p>
           </FadeIn>
 
           <div className="space-y-4">
@@ -259,8 +241,10 @@ const Contact = () => {
           </div>
         </div>
       </SectionReveal>
+
     </div>
   );
 };
 
 export default Contact;
+

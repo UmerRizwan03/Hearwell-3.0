@@ -1,74 +1,79 @@
-import { SectionReveal } from '../components/Motion';
-import { FadeIn } from '../components/Motion';
+import { FadeIn, SectionReveal } from '../components/common/Motion';
+import SEO from '../components/common/SEO';
 
 const TermsOfService = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
+      <SEO
+        title="Terms of Service | Hearwell"
+        description="Terms of service and usage guidelines for Hearwell Speech and Hearing Centre."
+        url="https://hearwell.co.in/terms"
+      />
+
+      <section className="relative pt-32 pb-24 overflow-hidden bg-[var(--color-dark-bg)]">
+        <div className="hw-container relative z-10">
+          <FadeIn className="max-w-4xl">
+            <h1 className="hw-heading-hero text-white mb-6">
+              Terms of <br />
+              <span className="text-[var(--color-dark-ink-muted)]">Service.</span>
+            </h1>
+            <p className="text-[var(--color-accent)] font-mono text-sm tracking-widest uppercase">Last Updated: April 2, 2026</p>
+          </FadeIn>
+        </div>
+      </section>
+
       <SectionReveal className="py-20 lg:py-28">
-        <div className="container mx-auto px-6 lg:px-8">
-          <FadeIn className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8 tracking-tight">Terms of Service</h1>
-            <p className="text-gray-500 mb-12 text-sm uppercase tracking-widest font-semibold italic">Last Updated: April 2, 2026</p>
-
-            <div className="prose prose-lg max-w-none text-gray-600 space-y-10">
+        <div className="hw-container">
+          <FadeIn className="max-w-4xl">
+            <div className="prose prose-lg max-w-none text-[var(--color-ink-secondary)] space-y-12">
+              
               <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">1. Agreement to Terms</h2>
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4 border-b border-[var(--color-border)] pb-4">1. Acceptance of Terms</h2>
                 <p>
-                  By accessing the Hearwell Speech and Hearing Centre website and utilizing our clinical services, you agree to comply with and be bound by the following terms and conditions. If you do not agree with any part of these terms, please refrain from using our services.
+                  By accessing and using the website of Hearwell Speech and Hearing Centre ("we", "our", "us"), you accept and agree to be bound by the terms and provision of this agreement.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">2. Clinical Services</h2>
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4 border-b border-[var(--color-border)] pb-4">2. Clinical Services Disclaimer</h2>
                 <p>
-                  Hearwell provides specialized audiological and speech therapy services. All treatments and recommendations are based on professional clinical evaluations and established medical practices. We reserve the right to modify our service offerings and clinical protocols at any time.
-                </p>
-                <ul className="list-disc pl-6 space-y-2 mt-4 font-medium">
-                  <li>Appointment scheduling is subject to availability.</li>
-                  <li>Cancellations should be made at least 24 hours in advance.</li>
-                  <li>Patients are responsible for providing accurate health information.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">3. Use of Website</h2>
-                <p>
-                  The content provided on this website is for informational purposes only and does not constitute medical advice. You agree to use the website for lawful purposes and refrain from any activity that may disrupt site security or operation.
+                  The information provided on this website is for educational and informational purposes only. It does not constitute medical advice and is not intended to be a substitute for professional clinical diagnosis or treatment. Always seek the advice of your audiologist, speech therapist, or other qualified health provider with any questions you may have regarding a medical condition.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">4. Intellectual Property</h2>
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4 border-b border-[var(--color-border)] pb-4">3. Appointments and Cancellations</h2>
                 <p>
-                  All content, logos, images, and clinical materials on our website are the intellectual property of Hearwell Speech and Hearing Centre and are protected by applicable intellectual property laws. Unauthorized reproduction or distribution is strictly prohibited.
+                  When booking an appointment through our website or via phone, you agree to provide accurate information. We request that you provide at least 24 hours notice if you need to cancel or reschedule your appointment, allowing us to offer that time to another patient.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">5. Limitation of Liability</h2>
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4 border-b border-[var(--color-border)] pb-4">4. Intellectual Property</h2>
                 <p>
-                  While we strive for clinical excellence, Hearwell shall not be liable for any indirect, incidental, or consequential damages resulting from the use of our website or services, except as required by law. Clinical outcomes may vary based on individual physiological factors.
+                  All content published and made available on our site is the property of Hearwell Speech and Hearing Centre and the site's creators. This includes, but is not limited to images, text, logos, documents, downloadable files and anything that contributes to the composition of our site.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-gray-100">6. Governing Law</h2>
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4 border-b border-[var(--color-border)] pb-4">5. Limitation of Liability</h2>
                 <p>
-                  These Terms of Service shall be governed by and construed in accordance with the laws of India and the state of Kerala. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Kerala.
+                  Hearwell Speech and Hearing Centre and our directors, officers, agents, employees, subsidiaries, and affiliates will not be liable for any actions, claims, losses, damages, liabilities and expenses including legal fees from your use of the site.
                 </p>
               </section>
 
-              <section className="bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-16">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Information</h2>
-                <p className="mb-0">
-                  For any questions regarding these Terms of Service, please contact us at:<br /><br />
-                  <strong>Hearwell Speech and Hearing Centre</strong><br />
+              <SectionReveal className="bg-[var(--color-surface)] p-10 rounded-[var(--radius-xl)] border border-[var(--color-border)] mt-16">
+                <h2 className="text-2xl font-display font-bold text-[var(--color-ink)] mb-4">Contact Information</h2>
+                <p className="mb-0 text-[var(--color-ink-secondary)]">
+                  If you have any questions or concerns about these Terms, please contact us at:<br /><br />
+                  <strong className="text-[var(--color-ink)]">Hearwell Speech and Hearing Centre</strong><br />
                   Hariharraiyyer Rd, Opp. Govt Boys HSS<br />
                   Perumbavoor, Kerala<br />
                   Email: hearwellspeechandhearing@gmail.com<br />
                   Phone: +91 9633626656
                 </p>
-              </section>
+              </SectionReveal>
+
             </div>
           </FadeIn>
         </div>
@@ -78,3 +83,4 @@ const TermsOfService = () => {
 };
 
 export default TermsOfService;
+

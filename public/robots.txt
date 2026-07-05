@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hearwell.com/sitemap.xml
+Sitemap: https://hearwell.co.in/sitemap.xml

@@ -4,22 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/webp" href="/logo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Fonts: non-blocking preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"></noscript>
+    <meta name="theme-color" content="#1D544F" />
+
+    <!-- Fontshare: Satoshi + General Sans -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&f[]=general-sans@400,500,600,700&display=swap">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&f[]=general-sans@400,500,600,700&display=swap"></noscript>
+
     <title>Hearwell Speech and Hearing Centre</title>
+
     <!-- LocalBusiness Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
       "name": "Hearwell Speech and Hearing Centre",
-      "url": "https://hearwell.com",
-      "logo": "https://hearwell.com/logo.webp",
-      "image": "https://hearwell.com/images/clinic-interior.webp",
+      "url": "https://hearwell.co.in",
+      "logo": "https://hearwell.co.in/logo.webp",
+      "image": "https://hearwell.co.in/images/clinic-interior.webp",
       "description": "Expert audiology, hearing aid fitting, speech therapy, and child development programs in Perumbavoor and Perinjanam, Kerala.",
       "telephone": "+919633626656",
       "priceRange": "$$",
@@ -40,8 +43,24 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Inline loading state — no external dependency -->
+      <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #fff;">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <div style="width: 4px; height: 20px; background: #1D544F; border-radius: 2px; animation: hw-load 0.8s ease-in-out infinite;"></div>
+          <div style="width: 4px; height: 32px; background: #1D544F; border-radius: 2px; animation: hw-load 0.8s ease-in-out 0.15s infinite;"></div>
+          <div style="width: 4px; height: 24px; background: #1D544F; border-radius: 2px; animation: hw-load 0.8s ease-in-out 0.3s infinite;"></div>
+          <div style="width: 4px; height: 36px; background: #1D544F; border-radius: 2px; animation: hw-load 0.8s ease-in-out 0.45s infinite;"></div>
+          <div style="width: 4px; height: 20px; background: #1D544F; border-radius: 2px; animation: hw-load 0.8s ease-in-out 0.6s infinite;"></div>
+        </div>
+        <style>
+          @keyframes hw-load {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.4; }
+            50% { transform: scaleY(1); opacity: 1; }
+          }
+        </style>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -10,44 +10,39 @@ A premium, highly interactive digital platform engineered for **Hearwell Speech 
 
 ---
 
-## 🩺 Overview
+## 🩺 Overview & Mission
 
-Hearwell is a leading diagnostic and therapeutic centre specializing in comprehensive hearing care and speech therapy, with a legacy dating back to 2014. The platform serves as a modern digital gateway for new and returning patients to explore specialized services, meet the clinical team, and seamlessly gain access to clinic routing.
+**Hearwell** is a leading diagnostic and therapeutic centre specializing in comprehensive hearing care and speech therapy, with a legacy dating back to 2014. The platform serves as a modern digital gateway for new and returning patients to explore specialized services, meet the clinical team, and seamlessly gain access to clinic routing.
+
+Our primary goal is to convert worried visitors into confident patients. The website communicates clinical excellence (16+ years experience, advanced diagnostics, personalized hearing aid fitting, evidence-led speech therapy) while making the first step easy: book an appointment or call. 
+
+We currently operate two clinics in Kerala:
+- **Perumbavoor**
+- **Perinjanam**
 
 > [!IMPORTANT]
-> The site implements our bespoke **"Editorial Precision"** design system. By relying on organic `framer-motion` animations, an `Outfit`/`Inter` font duo, and fluid HSL color tokens, the UI communicates absolute medical trust without feeling generic.
+> The site implements our bespoke **"Editorial Precision"** design system. By relying on organic `framer-motion` animations, an `Outfit`/`Inter` font duo, and fluid HSL color tokens, the UI communicates absolute medical trust without feeling generic or overly clinical.
 
 ---
 
-## 🚀 Production-Grade Features & Optimizations
+## 👥 Target Audience & Brand Personality
 
-The application has undergone a rigorous production audit to ensure maximum performance, security, and search engine visibility.
+**Target Audience:** Families with children experiencing speech delays or hearing difficulties, and older adults navigating hearing loss. They are seeking reassurance that expert, compassionate care is accessible close to home.
 
-### ⚡ Performance Architecture
-- **WebP Image Pipeline**: All static PNG assets (including the massive site logo) have been compressed and converted to highly optimized `WebP` formats, cutting initial load payloads drastically.
-- **Optimized Scroll Hook**: The global scroll progress indicator leverages a pure React DOM `ref` approach with `passive` event listeners, bypassing React's rendering lifecycle to guarantee buttery-smooth scrolling with zero frame drops.
-- **Intelligent Code Splitting**: All major page routes are lazy-loaded (`React.lazy` + `Suspense`), ensuring users only download the JavaScript necessary for the specific page they are viewing.
-
-### 🛡️ Security & Vercel Hosting
-- **Vercel Edge Configuration**: A strictly defined `vercel.json` applies critical security headers (`Content-Security-Policy`, `X-Frame-Options`, `X-XSS-Protection`) across all responses.
-- **SPA Fallbacks**: Catch-all routing rules ensure direct navigation to interior pages never hits a hard 404, alongside a beautifully designed `NotFound` fallback component.
-- **Source Map Protection**: Production source maps are completely disabled via Vite config to prevent intellectual property leakage.
-
-### 🔍 Search Engine Optimization (SEO)
-- **LocalBusiness Schema**: Implemented robust JSON-LD structured data in the root HTML, providing Google with precise clinic locations, hours, and contact details.
-- **Dynamic Metadata**: Every single route dynamically injects its own optimized `<title>`, `<meta name="description">`, and canonical URLs via a custom SEO wrapper.
+**Brand Personality:** *Modern, confident, premium.* 
+We speak with clarity and warmth. We avoid sterile clinical jargon, stock-photo hospital clichés, or overly pushy "startup" sales copy. Our design choices reflect human warmth, precision, and medical authority.
 
 ---
 
-## ✨ Key Platform Features
+## ✨ Key Features & Architecture
+
+### 🏥 Multi-Branch Navigation & Routing
+Integrated smart **Location Cards** strategically route users. With 1-click Google Maps **"Get Directions"** and native **"Call Clinic"** (`tel:`) hooks, users seamlessly switch between our branches without friction.
 
 ### 👨‍⚕️ Clinical Team Showcase
 A dedicated **Our Specialists** section highlighting the clinic’s multidisciplinary team. Features the Chief Audiologist and Speech Language Pathologist alongside dedicated Audiologists and Special Educators. Profiles structurally highlight CRR numbers, clinical tenure, and core specializations.
 
-### 🗺️ Multi-Branch Navigation
-Integrated smart **Location Cards** strategically route users. With 1-click Google Maps **"Get Directions"** and native **"Call Clinic"** (`tel:`) hooks, users seamlessly switch between the **Perumbavoor** and **Perinjanam** branches without friction.
-
-### 👂 Audiology & Diagnostics
+### 👂 Audiology & Diagnostics Services
 Detailed service landing pages breaking down:
 - Pure Tone Audiometry and specialist OAE (Newborn Screening).
 - Precision fitting for next-generation digital hearing aid technologies. 
@@ -60,63 +55,94 @@ Dedicated architectural spaces addressing Child Development Programs:
 
 ---
 
-## 🛠️ Technical Architecture
+## 🚀 Technical Stack & Optimizations
 
 This repository leverages the cutting edge of the modern web ecosystem to guarantee maximal performance and stellar SEO:
 
 * **Engine:** [React 19](https://react.dev/) running atop [Vite 8](https://vitejs.dev/).
 * **Styling Engine:** Custom-configured [Tailwind CSS v4](https://tailwindcss.com/) handling dynamic theming and utility constraints.
 * **Animation Hub:** [Framer Motion v12](https://motion.dev/) orchestrating "Living UI" micro-interactions (`SectionReveal`, `StaggerContainer`, custom float routines).
+* **Smooth Scrolling:** Integrated [Lenis](https://lenis.studiofreight.com/) for a buttery-smooth vertical scrolling experience.
 * **Asset Optimization:** Integrated [Vite Imagetools](https://github.com/JonasKruckenberg/imagetools) resolving raw photography to perfectly sized, responsive `webp` `srcSets` dynamically to prevent Cumulative Layout Shifts (CLS).
 * **Navigation:** Pure SPA routing handled natively by [React Router v7](https://reactrouter.com/).
 * **Iconography:** Feather-light, crisp vector SVGs implemented via [Lucide React](https://lucide.dev/).
+
+### ⚡ Performance & Security 
+- **WebP Image Pipeline**: All static PNG assets are aggressively compressed and converted.
+- **Intelligent Code Splitting**: Route-level lazy loading (`React.lazy` + `Suspense`) ensures minimal initial bundle sizes.
+- **Vercel Edge Configuration**: A strictly defined `vercel.json` applies critical security headers (`Content-Security-Policy`, `X-Frame-Options`, `X-XSS-Protection`).
+- **SEO Ready**: `react-helmet-async` manages dynamic meta tags per route, alongside robust `LocalBusiness` JSON-LD schema for local search visibility.
+
+---
+
+## ♿ Accessibility & Inclusion
+
+We believe healthcare digital products must be accessible to everyone, especially elderly users and those with impairments:
+- **WCAG AA Compliance:** Strict 4.5:1 minimum contrast ratios across all typography.
+- **Legibility:** Base body text is generously sized (≥16px) with optimal line heights.
+- **Screen Reader Support:** Full semantic HTML, ARIA landmarks, and robust image alt-texts.
+- **Reduced Motion:** Automatic support for `prefers-reduced-motion` to respect users sensitive to heavy animations.
+- **Mobile First:** Touch targets are strictly ≥44px, ensuring frictionless navigation for elderly users with reduced dexterity.
 
 ---
 
 ## 📁 Repository Structure
 
-```bash
+```text
 src/
 ├── assets/           # Raw images automatically processed by Vite Imagetools
-├── components/       # Heavy lifters: OptimizedImage, GoogleReviews, Motion primitives
-├── hooks/            # Custom hooks: useFormSubmit (centralized form logic)
-├── pages/            # Core routing: Home, Services, Teams, Booking, NotFound
-├── utils/            # Shared logic: image manifest registries and motion variants
+├── components/       # Heavy lifters (layout, features, SEO, reusable UI)
+│   ├── common/       # SEO tags, Loaders, Buttons
+│   ├── features/     # WhatsApp CTA, specialized widgets
+│   └── layout/       # Navbar, Footer, Error Boundaries
+├── hooks/            # Custom reusable React hooks
+├── pages/            # Core routing pages
+│   ├── Home/
+│   ├── About/
+│   ├── Services/
+│   ├── HearingAids/
+│   ├── Doctor/
+│   ├── Locations/
+│   ├── Booking/
+│   ├── Contact/
+│   └── Blog/
+├── utils/            # Motion variants, helpers, constants
 ├── index.css         # Tailwind V4 layers and global resets
-└── App.tsx           # Global React Router and scroll-aware logic layouts
+└── App.tsx           # Global routing, Lenis scroll context, ethereal background
 ```
 
 ---
 
-## 💻 Local Development
+## 💻 Local Development Setup
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+)
+- [Node.js](https://nodejs.org/) (v20+ recommended)
 - `npm` or `yarn`
 
 ### Quick Start
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/UmerRizwan03/Hearwell-2.0.git
+   cd "Hearwell - Speech and Hearing Centre"
    ```
-2. **Install exact dependencies:**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
-3. **Boot the Dev Server (with HMR):**
+3. **Start the development server:**
    ```bash
    npm run dev
    ```
-
-### Production Build
-To spin out the heavily minified, cache-busted static assets for final CDN deployment:
-```bash
-npm run build
-```
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   *(This generates highly minified, cache-busted static assets into the `dist/` directory)*
 
 ---
 
 ## 📬 Contact & Links
+
 **Hearwell Speech & Hearing Centre**  
 📧 **Official Email:** [hearwellspeechandhearing@gmail.com](mailto:hearwellspeechandhearing@gmail.com)  
 📞 **Primary Contact:** +91 9633626656 / +91 9947314906  
