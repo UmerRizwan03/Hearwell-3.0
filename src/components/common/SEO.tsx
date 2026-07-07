@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = 'Hearwell Speech & Hearing Centre', 
+  title = 'Hearwell Speech & Hearing Centre | Audiology Clinic in Kerala', 
   description = 'Expert diagnostics, hearing aid fitting, and speech therapy delivered with clinical precision and human patience in Perumbavoor and Perinjanam, Kerala.', 
   url = 'https://hearwell.co.in',
   keywords = 'speech therapy Kerala, audiologist Perumbavoor, hearing aids Perinjanam, speech and hearing centre, best hearing clinic Kerala',
@@ -64,7 +64,7 @@ const SEO = ({
 
   return (
     <Helmet>
-      <title>{title === 'Hearwell Speech & Hearing Centre' ? title : `${title} | Hearwell`}</title>
+      <title>{title.includes('|') ? title : `${title} | Hearwell`}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta property="og:title" content={title} />
