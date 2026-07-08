@@ -11,10 +11,10 @@ const Home = () => {
   return (
     <div className="bg-transparent">
       <SEO
-        title="Hearwell Speech & Hearing Centre | Premium Care"
-        description="Expert hearing tests, hearing aid fitting, and speech therapy in Perumbavoor & Perinjanam, Kerala. Book an appointment today."
+        title="Hearwell Speech & Hearing Centre | Hearing Aids & Speech Therapy in Kerala"
+        description="Hearwell offers digital hearing aids, hearing tests, speech therapy, occupational therapy, AVT & pediatric audiology in Perumbavoor & Perinjanam, Kerala. Book today."
         url="https://hearwell.co.in"
-        keywords="speech therapy Kerala, best audiologist Perumbavoor, hearing tests Perinjanam, hearing aids Kerala, speech and hearing centre"
+        keywords="hearing aids Kerala, speech therapy Kerala, audiologist Perumbavoor, hearing tests Perinjanam, digital hearing aids, occupational therapy Kerala, AVT, pediatric audiology, hearing centre Kerala"
       />
 
       {/* ─── Hero Section ─── */}
