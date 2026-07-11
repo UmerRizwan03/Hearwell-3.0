@@ -127,7 +127,7 @@ const Services = () => {
       />
 
       {/* ─── Directory Split Hero ─── */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 border-b border-[var(--color-border)] bg-white overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 border-b border-[var(--color-border)] hw-bg-glass overflow-hidden">
 
         {/* Premium Dynamic Background */}
         <div className="absolute inset-0 pointer-events-none">
@@ -184,7 +184,7 @@ const Services = () => {
       </section>
 
       {/* ─── Clinical & Audiology Directory ─── */}
-      <section id="clinical" className="hw-section bg-[var(--color-surface)] scroll-mt-24">
+      <section id="clinical" className="hw-section hw-bg-plaster scroll-mt-24">
         <div className="hw-container">
           <SectionReveal className="mb-12">
             <h2 className="hw-heading-section text-[var(--color-ink)]">Clinical & Audiology</h2>
@@ -250,7 +250,7 @@ const Services = () => {
       </section>
 
       {/* ─── Child Development Grid ─── */}
-      <section id="developmental" className="hw-section bg-transparent scroll-mt-24 border-t border-[var(--color-border)]">
+      <section id="developmental" className="hw-section hw-bg-paper scroll-mt-24 border-t border-[var(--color-border)]">
         <div className="hw-container">
           <SectionReveal className="mb-12">
             <h2 className="hw-heading-section text-[var(--color-ink)]">Child Development Programs</h2>

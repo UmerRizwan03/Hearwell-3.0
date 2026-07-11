@@ -68,7 +68,7 @@ const About = () => {
       />
 
       {/* ─── Hero Section with CTA ─── */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-transparent">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden hw-bg-plaster">
         <div className="hw-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
@@ -143,7 +143,7 @@ const About = () => {
       </SectionReveal>
 
       {/* ─── Values ─── */}
-      <SectionReveal className="hw-section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <SectionReveal className="hw-section hw-bg-paper border-y border-[var(--color-border)]">
         <div className="hw-container">
           <FadeIn className="max-w-3xl mb-16">
             <h2 className="hw-heading-section text-[var(--color-ink)] mb-4">The values behind the appointment.</h2>
@@ -173,7 +173,7 @@ const About = () => {
       </SectionReveal>
 
       {/* ─── Timeline / Founding Story ─── */}
-      <SectionReveal className="hw-section bg-transparent">
+      <SectionReveal className="hw-section hw-bg-plaster">
         <div className="hw-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
@@ -217,7 +217,7 @@ const About = () => {
       </SectionReveal>
 
       {/* ─── Closing CTA ─── */}
-      <SectionReveal className="bg-[var(--color-surface-elevated)] border-t border-[var(--color-border)] py-20 lg:py-28">
+      <SectionReveal className="hw-bg-glass border-t border-[var(--color-border)] py-20 lg:py-28">
         <div className="hw-container text-center max-w-4xl mx-auto">
           <h2 className="hw-heading-section text-[var(--color-ink)] mb-6">Ready to take the next step?</h2>
           <p className="hw-body-lg text-[var(--color-ink-secondary)] mb-10 max-w-2xl mx-auto">

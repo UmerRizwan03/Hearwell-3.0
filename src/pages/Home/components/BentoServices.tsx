@@ -5,7 +5,7 @@ import OptimizedImage from '../../../components/common/OptimizedImage';
 
 export const BentoServices = () => {
   return (
-    <SectionReveal className="hw-section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+    <SectionReveal className="hw-section hw-bg-glass border-y border-[var(--color-border)]">
       <div className="hw-container">
         <FadeIn className="max-w-2xl mb-16">
           <h2 className="hw-heading-section mb-4">Comprehensive clinical care.</h2>

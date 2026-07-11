@@ -5,7 +5,7 @@ import { hearingAidsData } from '../data';
 
 export const HearingAidsSection = () => {
   return (
-    <SectionReveal className="hw-section bg-transparent border-y border-[var(--color-border)]">
+    <SectionReveal className="hw-section hw-bg-studio border-y border-[var(--color-border)]">
       <div className="hw-container">
         <FadeIn className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="hw-heading-section mb-4">Precision Hearing Technology</h2>

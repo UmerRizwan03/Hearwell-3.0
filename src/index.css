@@ -602,7 +602,256 @@
   .bg-gradient-radial {
     background-image: radial-gradient(var(--tw-gradient-stops));
   }
+
+  /* ─────────────────────────────────────────────
+     SECTION MATERIAL BACKGROUNDS
+     CSS-only. Zero bitmap assets.
+     Grain via inline SVG feTurbulence data URI.
+     ───────────────────────────────────────────── */
+
+  /* Shared: position context for ::after grain layer */
+  .hw-bg-plaster,
+  .hw-bg-glass,
+  .hw-bg-studio,
+  .hw-bg-paper,
+  .hw-bg-portrait,
+  .hw-bg-linen {
+    position: relative;
+  }
+
+  /* ── PLASTER — warm ivory limewash (About, Testimonials) ── */
+  /* Evokes: interior wall of a private luxury clinic.
+     Soft daylight entering from upper-left. */
+  .hw-bg-plaster {
+    background-color: oklch(0.987 0.005 82);
+    background-image:
+      /* Warm daylight wash from upper-left */
+      radial-gradient(ellipse 90% 70% at -10% -5%, oklch(1 0.004 78 / 0.75) 0%, transparent 60%),
+      /* Subtle ambient warmth on opposite corner */
+      radial-gradient(ellipse 60% 50% at 110% 100%, oklch(0.975 0.010 85 / 0.45) 0%, transparent 55%),
+      /* Very gentle center-to-base dimming for depth */
+      linear-gradient(175deg, oklch(0.995 0.003 80 / 0.5) 0%, oklch(0.978 0.008 85 / 0.5) 100%);
+  }
+
+  /* Fine plaster grain — SVG feTurbulence, 3% overlay */
+  .hw-bg-plaster::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.032;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+
+  /* ── GLASS — frosted architectural glass (Services) ── */
+  /* Evokes: a daylit clinic corridor with frosted glass panels.
+     Diffuse, cool-white, ever-so-slightly reflective at top. */
+  .hw-bg-glass {
+    background-color: oklch(0.982 0.005 188);
+    background-image:
+      /* Overhead diffused light source */
+      radial-gradient(ellipse 100% 55% at 50% -5%, oklch(1 0.002 185 / 0.85) 0%, transparent 65%),
+      /* Subtle lateral reflections */
+      linear-gradient(95deg, oklch(0.994 0.004 190 / 0.45) 0%, transparent 40%, transparent 60%, oklch(0.992 0.004 185 / 0.35) 100%),
+      /* Base tonal depth */
+      linear-gradient(180deg, oklch(0.990 0.004 188) 0%, oklch(0.972 0.009 188) 100%);
+  }
+
+  /* Fine glass shimmer — very faint, high-frequency noise */
+  .hw-bg-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.02;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* ── STUDIO — luxury product photography studio (Hearing Aids) ── */
+  /* Evokes: a high-end product shoot. Seamless white.
+     Soft overhead key light + gentle floor bounce. Clean. */
+  .hw-bg-studio {
+    background-color: oklch(0.998 0.002 75);
+    background-image:
+      /* Overhead key light — pure center bloom */
+      radial-gradient(ellipse 75% 55% at 50% -5%, oklch(1 0 0 / 0.9) 0%, transparent 70%),
+      /* Floor bounce / reflection — very subtle warm lift at bottom */
+      radial-gradient(ellipse 85% 30% at 50% 108%, oklch(0.990 0.006 78 / 0.55) 0%, transparent 65%),
+      /* Near-neutral warm-white base */
+      linear-gradient(180deg, oklch(0.999 0.001 80) 0%, oklch(0.993 0.005 78) 100%);
+    /* No grain — a product studio has a perfectly clean seamless sweep */
+  }
+
+  /* Studio: no ::after grain layer intentionally */
+
+  /* ── PAPER — fine cotton editorial paper (Brand Collab) ── */
+  /* Evokes: a luxury editorial layout on heavyweight cotton paper.
+     Near-flat. Warm. The logos are the entire focus. */
+  .hw-bg-paper {
+    background-color: oklch(0.979 0.009 82);
+    background-image:
+      /* Extremely subtle central light — almost imperceptible */
+      radial-gradient(ellipse 80% 50% at 50% 35%, oklch(0.994 0.005 80 / 0.5) 0%, transparent 70%),
+      /* Very faint warm shadow at edges — natural paper vignette */
+      radial-gradient(ellipse 100% 100% at 50% 50%, transparent 55%, oklch(0.965 0.013 83 / 0.3) 100%);
+  }
+
+  /* Paper grain — fine cotton texture, slightly coarser frequency */
+  .hw-bg-paper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.028;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 240px 240px;
+  }
+
+  /* ── PORTRAIT — warm portrait studio (Doctor section) ── */
+  /* Evokes: a Hasselblad portrait session. Warm ivory background.
+     Soft natural window light from upper-right.
+     Large negative space — doctor's portrait dominates. */
+  .hw-bg-portrait {
+    background-color: oklch(0.991 0.006 83);
+    background-image:
+      /* Warm natural light entering from upper-right (window simulation) */
+      radial-gradient(ellipse 65% 65% at 100% 0%, oklch(1 0.004 78 / 0.7) 0%, transparent 60%),
+      /* Fill light from left — cool secondary */
+      radial-gradient(ellipse 50% 60% at -5% 60%, oklch(0.996 0.004 190 / 0.22) 0%, transparent 55%),
+      /* Gentle base warmth */
+      linear-gradient(160deg, oklch(0.997 0.003 80 / 0.6) 0%, oklch(0.983 0.008 85 / 0.5) 100%);
+  }
+
+  /* Portrait grain — fine, low density */
+  .hw-bg-portrait::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 260px 260px;
+  }
+
+  /* ── LINEN — premium dark linen (Footer) ── */
+  /* Evokes: dark charcoal linen or matte walnut.
+     Warm dark base. Subtle top center ambient lift.
+     No glow animations — completely static. */
+  .hw-bg-linen {
+    background-color: oklch(0.172 0.018 52);
+    background-image:
+      /* Subtle warm lift at the very top — like ambient uplighting */
+      radial-gradient(ellipse 60% 35% at 50% 0%, oklch(0.24 0.024 52 / 0.7) 0%, transparent 65%),
+      /* Very slight warm-to-cool depth across the panel */
+      linear-gradient(175deg, oklch(0.190 0.020 55 / 0.4) 0%, oklch(0.158 0.016 48 / 0.4) 100%);
+  }
+
+  /* Linen weave grain — coarser frequency to suggest woven texture */
+  .hw-bg-linen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.038;
+    mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* ─────────────────────────────────────────────
+     SECTION WAVE LAYERS (::before)
+     Inline SVG path data URIs — zero network requests.
+     Each section gets a distinct wave personality.
+     Studio intentionally omitted for clean product aesthetic.
+     ───────────────────────────────────────────── */
+
+  /* ── PLASTER waves — flowing limestone strata (About, Testimonials) ── */
+  /* 4 sinusoidal contour lines in the lower 60%.
+     Amplitude: 40px. Period: ~680px. Fading down to near-invisible. */
+  .hw-bg-plaster::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 500' preserveAspectRatio='xMidYMax slice'><path d='M-60,220 C200,178 460,262 720,220 C980,178 1240,262 1500,220' fill='none' stroke='%232e7a74' stroke-width='1.4' opacity='0.07'/><path d='M-60,300 C200,258 460,342 720,300 C980,258 1240,342 1500,300' fill='none' stroke='%232e7a74' stroke-width='1.1' opacity='0.055'/><path d='M-60,380 C200,338 460,422 720,380 C980,338 1240,422 1500,380' fill='none' stroke='%232e7a74' stroke-width='0.9' opacity='0.04'/><path d='M-60,460 C200,418 460,502 720,460 C980,418 1240,502 1500,460' fill='none' stroke='%232e7a74' stroke-width='0.7' opacity='0.025'/></svg>");
+    background-size: 100% 62%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
+
+  /* ── GLASS waves — frosted horizontal ripple bands (Services) ── */
+  /* 5 tight ripple lines (amplitude: 14px) spanning full height.
+     Creates subtle frosted glass panel suggestion. */
+  .hw-bg-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600' preserveAspectRatio='none'><path d='M0,100 C360,86 720,114 1080,100 C1260,93 1380,97 1440,100' fill='none' stroke='%232e7a74' stroke-width='0.8' opacity='0.055'/><path d='M0,210 C360,196 720,224 1080,210 C1260,203 1380,207 1440,210' fill='none' stroke='%232e7a74' stroke-width='0.8' opacity='0.045'/><path d='M0,320 C360,306 720,334 1080,320 C1260,313 1380,317 1440,320' fill='none' stroke='%232e7a74' stroke-width='0.8' opacity='0.055'/><path d='M0,430 C360,416 720,444 1080,430 C1260,423 1380,427 1440,430' fill='none' stroke='%232e7a74' stroke-width='0.8' opacity='0.045'/><path d='M0,540 C360,526 720,554 1080,540 C1260,533 1380,537 1440,540' fill='none' stroke='%232e7a74' stroke-width='0.8' opacity='0.055'/></svg>");
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  /* ── PAPER waves — ultra-fine editorial contour lines (Brand Collab) ── */
+  /* 9 tight parallel curves across full height.
+     Amplitude: 8px (barely perceptible movement).
+     Warm brown stroke to complement the paper tone. */
+  .hw-bg-paper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' preserveAspectRatio='xMidYMid slice'><path d='M0,36 C360,28 720,44 1080,36 S1440,28 1440,36' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.065'/><path d='M0,78 C360,70 720,86 1080,78 S1440,70 1440,78' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.06'/><path d='M0,120 C360,112 720,128 1080,120 S1440,112 1440,120' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.055'/><path d='M0,162 C360,154 720,170 1080,162 S1440,154 1440,162' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.05'/><path d='M0,204 C360,196 720,212 1080,204 S1440,196 1440,204' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.045'/><path d='M0,246 C360,238 720,254 1080,246 S1440,238 1440,246' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.04'/><path d='M0,288 C360,280 720,296 1080,288 S1440,280 1440,288' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.033'/><path d='M0,330 C360,322 720,338 1080,330 S1440,322 1440,330' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.026'/><path d='M0,372 C360,364 720,380 1080,372 S1440,364 1440,372' fill='none' stroke='%23806040' stroke-width='0.7' opacity='0.02'/></svg>");
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  /* ── PORTRAIT waves — sweeping studio backdrop arcs (Doctor) ── */
+  /* 3 large organic arcs suggesting a curved studio sweep.
+     Higher amplitude (150px), very low opacity.
+     Concentrated in left-to-right flow, giving warmth to portrait. */
+  .hw-bg-portrait::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600' preserveAspectRatio='xMidYMid slice'><path d='M-150,520 Q350,120 820,380 Q1060,500 1590,180' fill='none' stroke='%232e7a74' stroke-width='1.8' opacity='0.06'/><path d='M-150,580 Q350,180 820,440 Q1060,560 1590,240' fill='none' stroke='%232e7a74' stroke-width='1.3' opacity='0.045'/><path d='M-150,460 Q350,60 820,320 Q1060,440 1590,120' fill='none' stroke='%232e7a74' stroke-width='1' opacity='0.03'/></svg>");
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  /* ── LINEN waves — lifted flow at top of dark footer ── */
+  /* 4 flowing waves anchored to the top.
+     White strokes at very low opacity against the dark linen base.
+     Creates a sense of fabric draped from above. */
+  .hw-bg-linen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400' preserveAspectRatio='xMidYMin slice'><path d='M-60,70 C200,30 460,110 720,70 C980,30 1240,110 1500,70' fill='none' stroke='white' stroke-width='1.4' opacity='0.08'/><path d='M-60,140 C200,100 460,180 720,140 C980,100 1240,180 1500,140' fill='none' stroke='white' stroke-width='1.1' opacity='0.06'/><path d='M-60,210 C200,170 460,250 720,210 C980,170 1240,250 1500,210' fill='none' stroke='white' stroke-width='0.9' opacity='0.045'/><path d='M-60,280 C200,240 460,320 720,280 C980,240 1240,320 1500,280' fill='none' stroke='white' stroke-width='0.7' opacity='0.03'/></svg>");
+    background-size: 100% 65%;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
 }
+
 
 /* ─── Keyframe Animations ─── */
 

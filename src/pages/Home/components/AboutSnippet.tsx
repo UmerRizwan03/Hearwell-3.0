@@ -5,7 +5,7 @@ import OptimizedImage from '../../../components/common/OptimizedImage';
 
 export const AboutSnippet = () => {
   return (
-    <SectionReveal className="hw-section bg-transparent">
+    <SectionReveal className="hw-section hw-bg-plaster">
       <div className="hw-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 

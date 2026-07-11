@@ -42,7 +42,7 @@ const Locations = () => {
       />
 
       {/* ─── Physical Presence Hero ─── */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-transparent border-b border-[var(--color-border)]">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden hw-bg-glass border-b border-[var(--color-border)]">
         <div className="hw-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -78,7 +78,7 @@ const Locations = () => {
       </section>
 
       {/* ─── Location Showcases ─── */}
-      <div className="bg-[var(--color-surface)]">
+      <div className="hw-bg-paper border-b border-[var(--color-border)]">
         {locationsData.map((loc, index) => {
           const isEven = index % 2 === 0;
           return (
@@ -163,7 +163,7 @@ const Locations = () => {
       </div>
 
       {/* ─── Routing / Maps Section ─── */}
-      <SectionReveal className="hw-section bg-transparent">
+      <SectionReveal className="hw-section hw-bg-plaster">
         <div className="hw-container">
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
@@ -224,7 +224,7 @@ const Locations = () => {
       </SectionReveal>
 
       {/* ─── CTA ─── */}
-      <SectionReveal className="py-24 lg:py-32 bg-[var(--color-surface)] text-center border-t border-[var(--color-border)]">
+      <SectionReveal className="py-24 lg:py-32 hw-bg-glass text-center border-t border-[var(--color-border)]">
         <div className="hw-container">
           <FadeIn>
             <h2 className="hw-heading-section mb-8">

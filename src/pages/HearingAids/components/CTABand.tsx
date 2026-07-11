@@ -3,7 +3,7 @@ import { FadeIn, SectionReveal } from '../../../components/common/Motion';
 
 export const CTABand = () => {
   return (
-    <SectionReveal className="bg-transparent py-24 border-t border-[var(--color-border)]">
+    <SectionReveal className="hw-bg-glass py-24 border-t border-[var(--color-border)]">
       <div className="hw-container">
         <FadeIn className="max-w-3xl mx-auto text-center">
           <h2 className="hw-heading-section mb-6">Not sure which style suits you?</h2>

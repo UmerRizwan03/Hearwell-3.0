@@ -48,7 +48,7 @@ const Doctor = () => {
       />
 
       {/* ─── Authentic Profile Hero ─── */}
-      <section className="relative pt-32 pb-24 lg:pt-40 overflow-hidden bg-transparent">
+      <section className="relative pt-32 pb-24 lg:pt-40 overflow-hidden hw-bg-portrait">
         <div className="hw-container relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -131,7 +131,7 @@ const Doctor = () => {
       </section>
 
       {/* ─── Journey & Philosophy ─── */}
-      <SectionReveal className="hw-section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <SectionReveal className="hw-section hw-bg-paper border-y border-[var(--color-border)]">
         <div className="hw-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
@@ -169,7 +169,7 @@ const Doctor = () => {
       </SectionReveal>
 
       {/* ─── Core Team ─── */}
-      <SectionReveal className="hw-section bg-transparent">
+      <SectionReveal className="hw-section hw-bg-plaster">
         <div className="hw-container">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="hw-heading-section mb-4">Our Specialist Team</h2>

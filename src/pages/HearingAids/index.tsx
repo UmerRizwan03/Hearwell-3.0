@@ -6,7 +6,7 @@ import { CTABand } from './components/CTABand';
 
 const HearingAids = () => {
   return (
-    <div className="bg-transparent">
+    <div className="hw-bg-studio">
       <SEO
         title="Premium Hearing Aids | Hearwell"
         description="Discover our range of advanced digital hearing aids including IIC, CIC, RIC, and BTE styles. Custom fitted for your unique hearing profile."

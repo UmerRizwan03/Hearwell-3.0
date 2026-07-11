@@ -69,7 +69,7 @@ const Contact = () => {
       />
 
       {/* ─── Centered Direct Hero ─── */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-[var(--color-surface)]">
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden hw-bg-glass">
         <div className="hw-container relative z-10">
           <FadeIn className="max-w-4xl mx-auto text-center flex flex-col items-center">
             <div className="flex justify-center items-center gap-4 mb-8">
@@ -89,7 +89,7 @@ const Contact = () => {
       </section>
 
       {/* ─── Contact Info & Form ─── */}
-      <SectionReveal className="hw-section bg-[var(--color-surface)]">
+      <SectionReveal className="hw-section hw-bg-plaster">
         <div className="hw-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
@@ -221,7 +221,7 @@ const Contact = () => {
       </SectionReveal>
 
       {/* ─── FAQs ─── */}
-      <SectionReveal className="hw-section bg-transparent border-t border-[var(--color-border)]">
+      <SectionReveal className="hw-section hw-bg-paper border-t border-[var(--color-border)]">
         <div className="hw-container max-w-3xl">
           <FadeIn className="text-center mb-12">
             <h2 className="hw-heading-section mb-4">Frequently Asked Questions</h2>

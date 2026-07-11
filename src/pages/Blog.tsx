@@ -14,7 +14,7 @@ const Blog = () => {
       />
 
       {/* ─── Light Editorial Hero ─── */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-transparent border-b border-[var(--color-border)]">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden hw-bg-paper border-b border-[var(--color-border)]">
         <div className="hw-container relative z-10">
           <FadeIn className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
@@ -34,7 +34,7 @@ const Blog = () => {
       </section>
 
       {/* ─── Journal Layout ─── */}
-      <SectionReveal className="hw-section pt-16 lg:pt-24">
+      <SectionReveal className="hw-section pt-16 lg:pt-24 hw-bg-plaster">
         <div className="hw-container">
           
           {/* Featured Article */}
@@ -142,7 +142,7 @@ const Blog = () => {
       </SectionReveal>
 
       {/* ─── SEO Rich Text Section (Local SEO Boost) ─── */}
-      <SectionReveal className="hw-section bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+      <SectionReveal className="hw-section hw-bg-paper border-t border-[var(--color-border)]">
         <div className="hw-container">
           <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[var(--radius-xl)] shadow-sm border border-[var(--color-border)]">
             <FadeIn>

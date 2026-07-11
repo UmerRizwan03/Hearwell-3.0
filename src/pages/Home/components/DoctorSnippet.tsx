@@ -4,7 +4,7 @@ import { SectionReveal } from '../../../components/common/Motion';
 
 export const DoctorSnippet = () => {
   return (
-    <SectionReveal className="hw-section bg-transparent">
+    <SectionReveal className="hw-section hw-bg-portrait">
       <div className="hw-container-narrow">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-2/5 flex justify-center mt-12 md:mt-0">

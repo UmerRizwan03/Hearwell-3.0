@@ -47,8 +47,8 @@ export const Testimonials = () => {
   }, [testimonials.length, isHovered]);
 
   return (
-    <SectionReveal className="hw-section bg-[var(--color-surface)] overflow-hidden relative border-y border-[var(--color-border)]">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-[var(--color-primary-subtle)] to-transparent opacity-50 pointer-events-none" />
+    <SectionReveal className="hw-section hw-bg-plaster overflow-hidden relative border-y border-[var(--color-border)]">
+      
       
       <div className="hw-container relative z-10">
         <div 

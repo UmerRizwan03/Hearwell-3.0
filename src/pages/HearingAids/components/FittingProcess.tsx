@@ -4,7 +4,7 @@ import { FadeIn, SectionReveal } from '../../../components/common/Motion';
 
 export const FittingProcess = () => {
   return (
-    <SectionReveal className="py-24 bg-[var(--color-surface)] overflow-hidden border-t border-[var(--color-border)]">
+    <SectionReveal className="py-24 hw-bg-paper overflow-hidden border-t border-[var(--color-border)]">
       <div className="hw-container">
         <FadeIn className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="hw-heading-section text-[var(--color-ink)] mb-4">The Hearwell fitting process.</h2>

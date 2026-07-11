@@ -14,7 +14,7 @@ const Booking = () => {
   const todayStr = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="bg-transparent min-h-[100dvh]">
+    <div className="hw-bg-plaster min-h-[100dvh]">
       <SEO
         title="Book an Appointment | Hearwell"
         description="Schedule a hearing test, speech therapy session, or hearing aid consultation at Hearwell Speech & Hearing Centre."

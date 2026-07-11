@@ -51,14 +51,14 @@ const brandLogos = [
 
 export const BrandCollabSection = () => {
   return (
-    <section className="py-16 bg-[var(--color-surface)] overflow-hidden border-b border-[var(--color-border)]">
+    <section className="py-16 hw-bg-paper overflow-hidden border-b border-[var(--color-border)]">
       <div className="hw-container mb-12">
         <h2 className="hw-caption text-center">In collaboration with world-leading brands</h2>
       </div>
       
       <div className="relative w-full flex overflow-hidden group">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--color-surface)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[var(--color-surface)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[oklch(0.979_0.009_82)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[oklch(0.979_0.009_82)] to-transparent z-10 pointer-events-none" />
         
         <div className="flex animate-[scroll-marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
           {[...brandLogos, ...brandLogos, ...brandLogos].map((brand, i) => (
