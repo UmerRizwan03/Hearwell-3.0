@@ -30,6 +30,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!assets/|images/|favicon|logo|icons|robots|sitemap).*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
