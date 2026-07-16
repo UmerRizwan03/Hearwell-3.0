@@ -182,35 +182,31 @@ function App() {
           {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
         </AnimatePresence>
 
-        {!showIntro && (
-          <>
-            <SEO />
-            <ScrollToTop />
-            <ScrollProgress />
-            
-            {/* ─── Global Ethereal Background ─── */}
-            <div
-              className="fixed inset-0 z-0 pointer-events-none"
-              style={{
-                background: `
-                  radial-gradient(ellipse 80% 60% at 30% 20%, oklch(0.42 0.08 175 / 0.08), transparent 70%),
-                  radial-gradient(ellipse 60% 80% at 70% 80%, oklch(0.42 0.08 175 / 0.06), transparent 70%)
-                `,
-              }}
-            />
+        <SEO />
+        <ScrollToTop />
+        <ScrollProgress />
+        
+        {/* ─── Global Ethereal Background ─── */}
+        <div
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(ellipse 80% 60% at 30% 20%, oklch(0.42 0.08 175 / 0.08), transparent 70%),
+              radial-gradient(ellipse 60% 80% at 70% 80%, oklch(0.42 0.08 175 / 0.06), transparent 70%)
+            `,
+          }}
+        />
 
-            <div className="flex flex-col min-h-[100dvh] relative z-10">
-              <Navbar />
-              <main className="flex-grow">
-                <ErrorBoundary>
-                  <AnimatedRoutes />
-                </ErrorBoundary>
-              </main>
-              <Footer />
-              <WhatsAppCTA />
-            </div>
-          </>
-        )}
+        <div className="flex flex-col min-h-[100dvh] relative z-10">
+          <Navbar />
+          <main className="flex-grow">
+            <ErrorBoundary>
+              <AnimatedRoutes />
+            </ErrorBoundary>
+          </main>
+          <Footer />
+          <WhatsAppCTA />
+        </div>
       </Router>
     </SmoothScroll>
   );
