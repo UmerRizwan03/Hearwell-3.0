@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn, SectionReveal, StaggerContainer, StaggerItem } from '../../../components/common/Motion';
+import OptimizedImage from '../../../components/common/OptimizedImage';
 import { hearingAidsData } from '../data';
 
 export const HearingAidsSection = () => {
@@ -19,7 +20,7 @@ export const HearingAidsSection = () => {
             <StaggerItem key={aid.id} className="hw-card group relative overflow-hidden flex flex-col p-6 items-center justify-center min-h-[260px] text-center bg-[var(--color-surface)] border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-colors">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-surface-elevated)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10 w-40 h-40 sm:w-48 sm:h-48 mb-6 transform group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] drop-shadow-xl">
-                <img src={aid.image} alt={aid.fullName} className="w-full h-full object-contain filter drop-shadow-md" />
+                <OptimizedImage src={aid.image} alt={aid.fullName} className="w-full h-full object-contain filter drop-shadow-md" containerClassName="w-full h-full" disableBlur={true} />
               </div>
               <h3 className="relative z-10 font-display font-bold text-[var(--color-ink)] text-xl mb-1">{aid.name}</h3>
               <p className="relative z-10 text-[var(--color-ink-muted)] text-sm font-medium">{aid.fullName}</p>

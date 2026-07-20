@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, Ear } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionReveal } from '../../../components/common/Motion';
+import OptimizedImage from '../../../components/common/OptimizedImage';
 import { categories } from '../data';
 
 /* ─── Animation Variants ─── */
@@ -127,18 +128,24 @@ export const HearingAidsShowcase = () => {
                   {/* Left: Product image stage */}
                   <div className="relative flex items-center justify-center">
                     <AnimatePresence mode="wait">
-                      <motion.img
+                      <motion.div
                         key={activeId + '-primary-img'}
-                        src={active.image}
-                        alt={active.name}
                         variants={imageVariants}
                         initial="initial"
                         animate="animate"
                         exit="exit"
                         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative z-10 w-full max-w-[600px] scale-[1.3] lg:scale-[1.75] lg:-translate-x-6 aspect-square object-contain transform-gpu"
+                        className="relative z-10 w-full max-w-[600px] scale-[1.3] lg:scale-[1.75] lg:-translate-x-6 aspect-square transform-gpu"
                         style={{ filter: 'drop-shadow(0 20px 40px oklch(0 0 0 / 0.15))' }}
-                      />
+                      >
+                        <OptimizedImage
+                          src={active.image}
+                          alt={active.name}
+                          className="w-full h-full object-contain"
+                          containerClassName="w-full h-full"
+                          disableBlur={true}
+                        />
+                      </motion.div>
                     </AnimatePresence>
 
                     {/* Floating ring decoration */}
@@ -285,11 +292,13 @@ export const HearingAidsShowcase = () => {
               <div className="relative z-10 p-4 lg:p-5 flex flex-col h-full">
                 {/* Image */}
                 <div className="relative flex-1 flex items-center justify-center min-h-[100px] mb-3">
-                  <img
+                  <OptimizedImage
                     src={cat.image}
                     alt={cat.abbr}
                     className="w-full max-w-[140px] lg:max-w-[120px] scale-110 lg:scale-125 aspect-square object-contain transition-all duration-500 group-hover:scale-[1.25] lg:group-hover:scale-[1.4] group-hover:-translate-y-2"
                     style={{ filter: 'drop-shadow(0 8px 16px oklch(0 0 0 / 0.08))' }}
+                    containerClassName="w-full max-w-[140px] lg:max-w-[120px] aspect-square"
+                    disableBlur={true}
                   />
                 </div>
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Globe, ArrowRight, Navigation } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem, Soundwave } from '../common/Motion';
+import OptimizedImage from '../common/OptimizedImage';
 
 const locations = [
   {
@@ -139,7 +140,7 @@ const Footer = () => {
             {/* Brand */}
             <StaggerItem className="lg:col-span-4 lg:pr-8">
               <Link to="/" className="flex items-center gap-2.5 mb-5 group w-fit">
-                <img src="/logo.webp" alt="Hearwell Logo" className="w-7 h-7 object-contain group-hover:scale-105 transition-transform" />
+                <OptimizedImage src="/logo.webp" alt="Hearwell Logo" className="w-7 h-7 object-contain group-hover:scale-105 transition-transform" containerClassName="w-7 h-7" disableBlur={true} />
                 <span className="text-lg font-bold text-[var(--color-ink)] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                   Hearwell
                 </span>

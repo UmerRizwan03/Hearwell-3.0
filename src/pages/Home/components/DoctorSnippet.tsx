@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SectionReveal } from '../../../components/common/Motion';
+import OptimizedImage from '../../../components/common/OptimizedImage';
 
 
 export const DoctorSnippet = () => {
@@ -10,7 +11,7 @@ export const DoctorSnippet = () => {
           <div className="w-full md:w-2/5 flex justify-center mt-12 md:mt-0">
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 group">
               {/* Abstract Soundwave Perimeter (CSS Spirograph) */}
-              <div className="absolute inset-0 flex items-center justify-center -z-10">
+              <div className="absolute inset-0 flex items-center justify-center z-0">
                 {/* Glowing wavy rings */}
                 <div className="absolute w-[95%] h-[95%] border-[1.5px] border-[var(--color-primary)]/80 rounded-[43%_57%_49%_51%] animate-[spin_7s_linear_infinite]" />
                 <div className="absolute w-[98%] h-[98%] border-[1px] border-[#22D3EE]/70 rounded-[51%_49%_53%_47%] animate-[spin_11s_linear_infinite_reverse]" />
@@ -26,10 +27,9 @@ export const DoctorSnippet = () => {
                 <div className="absolute w-[92%] h-[92%] rounded-full bg-gradient-to-b from-white to-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-[inset_0_0_40px_rgba(0,0,0,0.03)]" />
               </div>
               
-              {/* 3D Pop Out Image Container */}
               <div 
                 className="absolute inset-0 z-10 pointer-events-none"
-                style={{ clipPath: 'inset(-35% 0 0 0 round 0 0 50% 50%)' }}
+                style={{ clipPath: 'inset(-100% 0 0 0 round 0 0 50% 50%)' }}
               >
                 <img
                   src="/images/doctor.webp"

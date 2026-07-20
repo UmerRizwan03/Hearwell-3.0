@@ -20,16 +20,7 @@ const Home = () => {
       {/* ─── Hero Section ─── */}
       <HeroSection />
 
-      {/* ─── Trust Indicator Strip ─── */}
-      <section className="bg-[var(--color-surface)] border-b border-[var(--color-border)] py-4">
-        <div className="hw-container">
-          <div className="flex items-center justify-center text-center">
-            <p className="text-[var(--color-ink-muted)] text-sm font-medium">
-              Trusted by 5,000+ patients across Kerala since 2009. Rated 4.9/5 on Google.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* ─── About Snippet ─── */}
       <AboutSnippet />

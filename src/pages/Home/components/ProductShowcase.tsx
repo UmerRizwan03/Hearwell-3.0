@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { hearingAidsData } from '../data';
+import OptimizedImage from '../../../components/common/OptimizedImage';
 
 export const ProductShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -91,11 +92,13 @@ export const ProductShowcase = () => {
                 <div
                   className={`w-full h-full flex items-center justify-center ${isCenter ? 'animate-[float-gentle_4s_ease-in-out_infinite] will-change-transform' : ''}`}
                 >
-                  <img 
+                  <OptimizedImage 
                     src={item.image} 
                     alt={item.fullName}
                     className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] scale-110 sm:scale-125 lg:scale-[1.4]"
-                    {...(isCenter ? { fetchPriority: 'high', loading: 'eager' } : { loading: 'lazy' })}
+                    containerClassName="w-full h-full"
+                    priority={isCenter}
+                    disableBlur={true}
                   />
                 </div>
               </motion.div>

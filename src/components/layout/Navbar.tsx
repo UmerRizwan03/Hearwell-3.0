@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Soundwave } from '../common/Motion';
+import OptimizedImage from '../common/OptimizedImage';
 
 const navLinks = [
   { name: 'About', path: '/about' },
@@ -57,7 +58,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 relative z-[60] group" onClick={closeMenu}>
               <div className="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
-                <img src="/logo.webp" alt="Hearwell Logo" className="w-full h-full object-contain" />
+                <OptimizedImage src="/logo.webp" alt="Hearwell Logo" className="w-full h-full object-contain" containerClassName="w-full h-full" disableBlur={true} />
               </div>
               <div className="flex flex-col justify-center">
                 <span 

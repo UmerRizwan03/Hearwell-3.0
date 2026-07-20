@@ -111,10 +111,9 @@ const Doctor = () => {
                   <div className="absolute w-[92%] h-[92%] rounded-full bg-gradient-to-b from-white to-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-[inset_0_0_40px_rgba(0,0,0,0.03)]" />
                 </div>
                 
-                {/* 3D Pop Out Image Container */}
                 <div 
                   className="absolute inset-0 z-10 pointer-events-none"
-                  style={{ clipPath: 'inset(-35% 0 0 0 round 0 0 50% 50%)' }}
+                  style={{ clipPath: 'inset(-100% 0 0 0 round 0 0 50% 50%)' }}
                 >
                   <img
                     src="/images/doctor.webp"

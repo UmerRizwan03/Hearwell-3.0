@@ -64,11 +64,13 @@ const Locations = () => {
             <div className="lg:col-span-5 hidden lg:block">
               <FadeIn delay={0.2}>
                 <div className="relative w-full rotate-1 hover:rotate-0 hover:-translate-y-2 transition-all duration-700 origin-bottom-right">
-                  <img
+                  <OptimizedImage
                     src="/images/locations-map.png"
                     alt="Clinic Locations Map"
                     className="w-full h-auto object-contain transition-all duration-700"
                     style={{ filter: 'drop-shadow(-20px 50px 40px rgba(0, 0, 0, 0.35)) drop-shadow(-10px 20px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15))' }}
+                    containerClassName="w-full h-auto"
+                    disableBlur={true}
                   />
                 </div>
               </FadeIn>

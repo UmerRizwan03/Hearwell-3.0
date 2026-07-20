@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { SectionReveal, Soundwave } from '../../../components/common/Motion';
 import { ProductShowcase } from './ProductShowcase';
+import OptimizedImage from '../../../components/common/OptimizedImage';
 import heroBgImage from '../../../assets/hero bg.webp';
 
 export const HeroSection = () => {
@@ -27,12 +28,15 @@ export const HeroSection = () => {
     >
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-        <motion.img
-          style={{ y: bgY, scale: bgScale }}
-          src={heroBgImage}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover origin-center"
-        />
+        <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 w-full h-full origin-center">
+          <OptimizedImage
+            priority
+            src={heroBgImage}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            containerClassName="w-full h-full"
+          />
+        </motion.div>
       </div>
 
       {/* Mouse hover gradient effect */}
@@ -77,7 +81,7 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* Bottom: 3D Image & CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full max-w-6xl mx-auto -mt-12 lg:-mt-28 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full max-w-6xl mx-auto mt-8 lg:-mt-28 relative z-20">
           
           {/* Left Column: 3D Product Showcase */}
           <motion.div 
@@ -117,9 +121,45 @@ export const HeroSection = () => {
                   Explore Services
                 </Link>
               </div>
+
+
             </motion.div>
           </motion.div>
 
+        </div>
+      </div>
+
+      {/* Review Pill at bottom left */}
+      <div className="absolute bottom-6 lg:bottom-12 inset-x-0 z-30 pointer-events-none">
+        <div className="hw-container">
+          <div className="pointer-events-auto bg-white/90 backdrop-blur-md border border-[var(--color-border)] rounded-full px-4 sm:px-5 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-wrap justify-center sm:flex-nowrap items-center gap-3 sm:gap-4 w-fit max-w-[90vw] mx-auto sm:mx-0">
+            {/* Stars and Rating */}
+            <div className="flex items-center gap-2">
+              <div className="flex gap-0.5">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B] fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-[13px] sm:text-sm font-bold text-[var(--color-ink)] whitespace-nowrap">4.9/5 <span className="font-medium text-[var(--color-ink-muted)]">Rated</span></span>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-6 bg-[var(--color-border-strong)]"></div>
+
+            {/* Avatars */}
+            <div className="flex -space-x-2 sm:-space-x-3">
+              <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=1" alt="Patient" />
+              <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=2" alt="Patient" />
+              <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=3" alt="Patient" />
+              <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=4" alt="Patient" />
+              <img className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=5" alt="Patient" />
+            </div>
+
+            {/* Text */}
+            <span className="text-[13px] sm:text-base font-bold text-[#3B82F6] whitespace-nowrap">5,000+ <span className="font-medium">Patients</span></span>
+          </div>
         </div>
       </div>
     </SectionReveal>

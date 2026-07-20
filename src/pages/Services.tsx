@@ -311,12 +311,13 @@ const Services = () => {
         <div className="hw-container">
           <div className="relative rounded-[2rem] overflow-hidden bg-[var(--color-primary)] shadow-2xl">
             {/* Atmospheric Background */}
-            <img
+            <OptimizedImage
               src="/images/hearing-testing-and-audiology.webp"
               alt=""
               className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay pointer-events-none"
-              loading="lazy"
+              containerClassName="absolute inset-0 w-full h-full"
               aria-hidden="true"
+              disableBlur={true}
             />
 
             {/* Elegant Gradient Overlay */}
